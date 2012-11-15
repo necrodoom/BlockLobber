@@ -1,0 +1,44 @@
+main: com.amoebaman.blocklobber.BlockLobber
+
+name: BlockLobber
+version: 1.0 (CB 1.4.2-R0.2)
+author: AmoebaMan
+description: Allows players to throw blocks
+
+commands:
+
+  lob-block:
+    aliases: [lob, lobblock]
+    description: Lobs a block
+    usage: /lob-block <ID[:data]> <strength>
+    permission: blocklobber.lob
+    permissions-message: You do not have permission to lob blocks
+    
+  lob-preset:
+    aliases: [lob-set]
+    description: Defines a preset for lobbing blocks
+    usage: /lob-set (pos|dir|mat|data|strength) [value]
+    permission: blocklobber.preset
+    permissions-message: You do not have permission to use lobber presets
+    
+  lob-clear:
+    description: Clears a previously defined preset
+    usage: /lob-clear (pos|dir|mat|data|strength)
+    permission: blocklobber.preset
+    permissions-message: You do not have permission to use lobber presets
+    
+permissions:
+
+  blocklobber.lob:
+    description: Allows players to lob blocks
+    default: op
+    
+  blocklobber.preset:
+    description: Allows players to set presets for lobbing blocks
+    default: op
+
+  blocklobber.*:
+    description: Grants all permissions
+    children:
+      blocklobber.lob: true
+      blocklobber.preset: true
