@@ -48,15 +48,15 @@ public class BlockLobber extends JavaPlugin{
 		if(command.getName().equals("lob-preset") && player != null){
 			try{
 				Presets values = new Presets(presets.get(player.getName()));
-				if(args[0].equalsIgnoreCase("pos"))
+				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 					values.loc = player.getLocation();
-				if(args[0].equalsIgnoreCase("dir"))
+				if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
 					values.dir = player.getLocation().getDirection();
-				if(args[0].equalsIgnoreCase("mat"))
+				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
 					values.mat = getMat(args[1]);
 				if(args[0].equalsIgnoreCase("data"))
 					values.data = Byte.parseByte(args[1]);
-				if(args[0].equalsIgnoreCase("strength"))
+				if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
 					values.strength = Byte.parseByte(args[1]);
 				presets.put(player.getName(), values);
 				player.sendMessage("Block lobbing preset " + args[0].toLowerCase() + " updated");
@@ -71,15 +71,15 @@ public class BlockLobber extends JavaPlugin{
 		if(command.getName().equals("lob-clear") && player != null){
 			try{
 				Presets values = new Presets(presets.get(player.getName()));
-				if(args[0].equalsIgnoreCase("pos"))
+				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 					values.loc = null;
-				if(args[0].equalsIgnoreCase("dir"))
+				if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
 					values.dir = null;
-				if(args[0].equalsIgnoreCase("mat"))
+				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
 					values.mat = null;
 				if(args[0].equalsIgnoreCase("data"))
 					values.data = 0;
-				if(args[0].equalsIgnoreCase("strength"))
+				if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
 					values.strength = 0;
 				presets.put(player.getName(), values);
 				player.sendMessage("Block lobbing preset " + args[0].toLowerCase() + " cleared");
