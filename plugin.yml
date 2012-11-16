@@ -15,13 +15,14 @@ commands:
     permissions-message: You do not have permission to lob blocks
     
   lob-preset:
-    aliases: [lob-set]
+    aliases: [lob-set, lobpreset]
     description: Defines a preset for lobbing blocks
     usage: /lob-set (pos|dir|mat|data|strength) [value]
     permission: blocklobber.preset
     permissions-message: You do not have permission to use lobber presets
     
   lob-clear:
+    aliases: [lobclear]
     description: Clears a previously defined preset
     usage: /lob-clear (pos|dir|mat|data|strength)
     permission: blocklobber.preset
