@@ -53,27 +53,40 @@ public class BlockLobber extends JavaPlugin{
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 				{
 					values.loc = player.getLocation();
-				} else {
-				if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				}
+				else
 				{
-					values.dir = player.getLocation().getDirection();
-				} else {
-				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
-				{
-					values.mat = getMat(args[1]);
-				} else {
-				if(args[0].equalsIgnoreCase("data"))
-				{
-					values.data = Byte.parseByte(args[1]);
-				} else {
-				if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
-			        {
-					values.strength = Byte.parseByte(args[1]);
-			        } else {
-			        	
-			        	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
-			        	return false;
-			        }
+				    if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				    {
+					    values.dir = player.getLocation().getDirection();
+				    }
+				    else
+				    {
+				        if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+				        {
+					        values.mat = getMat(args[1]);
+				        }
+				        else
+				        {
+				            if(args[0].equalsIgnoreCase("data"))
+					    {
+						    values.data = Byte.parseByte(args[1]);
+					    }
+					    else
+					    {
+						if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+			        		{
+							values.strength = Byte.parseByte(args[1]);
+			        		}
+			        		else
+			        		{
+			        			player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
+			        			return false;
+			        		}
+					    }
+				        }
+				    }
+				}
 			        
 				presets.put(player.getName(), values);
 				player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
@@ -91,26 +104,39 @@ public class BlockLobber extends JavaPlugin{
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 				{
 					values.loc = null;
-				} else {
-				if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				}
+				else
 				{
-					values.dir = null;
-				} else {
-				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
-				{
-					values.mat = null;
-				} else {
-				if(args[0].equalsIgnoreCase("data"))
-				{
-					values.data = 0;
-				} else {
-				if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
-				{
-					values.strength = 0;
-				} else {
-				
-					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
-			        	return false;
+				    if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				    {
+					    values.dir = null;
+				    }
+				    else
+				    {
+					if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+					{
+						values.mat = null;
+					}
+					else
+					{
+					    if(args[0].equalsIgnoreCase("data"))
+					    {
+						    values.data = 0;
+					    }
+					    else
+					    {
+						if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+						{
+							values.strength = 0;
+						}
+						else
+						{
+							player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
+			        			return false;
+						}
+					    }
+					}
+				    }
 				}
 				presets.put(player.getName(), values);
 				player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
