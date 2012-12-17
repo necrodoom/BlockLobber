@@ -25,16 +25,23 @@ public class BlockLobber extends JavaPlugin{
 			player = (Player) sender;
 		
 		if(command.getName().equals("lob-block") && player != null){
-			try{
+			try
+			{
 				Presets values = new Presets(presets.get(player.getName()));
-				if(args.length > 0){
+				if(args.length > 0)
+				{
 					String[] split = args[0].split(":");
 					values.mat = getMat(split[0]);
 					if(split.length > 1)
+					{
 						values.data = Byte.parseByte(split[1]);
+					}
 				}
 				if(args.length > 1)
+				{
 					values.strength = Byte.parseByte(args[1]);
+				}
+				
 				FallingBlock block = player.getWorld().spawnFallingBlock((values.loc == null ? player.getLocation() : values.loc), values.mat, values.data);
 				block.setVelocity((values.dir == null ? player.getLocation().getDirection() : values.dir).clone().multiply(values.strength).multiply(0.2));
 				block.setDropItem(player.getGameMode() == GameMode.CREATIVE);
@@ -46,8 +53,10 @@ public class BlockLobber extends JavaPlugin{
 			}
 		}
 
-		if(command.getName().equals("lob-preset") && player != null){
-			try{
+		if(command.getName().equals("lob-preset") && player != null)
+		{
+			try
+			{
 				Presets values = new Presets(presets.get(player.getName()));
 				
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
@@ -98,8 +107,11 @@ public class BlockLobber extends JavaPlugin{
 			}
 		}
 		
-		if(command.getName().equals("lob-clear") && player != null){
-			try{
+		
+		if(command.getName().equals("lob-clear") && player != null)
+		{
+			try
+			{
 				Presets values = new Presets(presets.get(player.getName()));
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 				{
@@ -151,17 +163,29 @@ public class BlockLobber extends JavaPlugin{
 		return true;
 	}
 
+
 	public static Material getMat(String name) {
 		name = name.toLowerCase();
 		Material mat = null;
-		if(mat == null){
-			try{ mat = Material.getMaterial(Integer.parseInt(name)); }
-			catch(NumberFormatException e){}
+		if(mat == null)
+		{
+			try
+			{ 
+				mat = Material.getMaterial(Integer.parseInt(name));
+			}
+			catch(NumberFormatException e)
+			{	
+			}
 		}
 		if(mat == null)
+		{
 			mat = Material.matchMaterial(name);
+		}
 		if((name.contains("spawn") || name.contains("mob")) && name.contains("egg"))
+		{
 			mat = Material.MONSTER_EGG;
+		}
+		
 		return mat;
 	}
 
