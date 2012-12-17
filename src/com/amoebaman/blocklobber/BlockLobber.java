@@ -80,7 +80,7 @@ public class BlockLobber extends JavaPlugin{
 			        		}
 			        		else
 			        		{
-			        			player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
+			        			player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
 			        			return false;
 			        		}
 					    }
@@ -131,7 +131,7 @@ public class BlockLobber extends JavaPlugin{
 						}
 						else
 						{
-							player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
+							player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
 			        			return false;
 						}
 					    }
