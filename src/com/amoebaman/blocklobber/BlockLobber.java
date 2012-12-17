@@ -2,6 +2,7 @@ package com.amoebaman.blocklobber;
 
 import java.util.HashMap;
 
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -48,18 +49,34 @@ public class BlockLobber extends JavaPlugin{
 		if(command.getName().equals("lob-preset") && player != null){
 			try{
 				Presets values = new Presets(presets.get(player.getName()));
+				
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+				{
 					values.loc = player.getLocation();
+				} else {
 				if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				{
 					values.dir = player.getLocation().getDirection();
+				} else {
 				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+				{
 					values.mat = getMat(args[1]);
+				} else {
 				if(args[0].equalsIgnoreCase("data"))
+				{
 					values.data = Byte.parseByte(args[1]);
+				} else {
 				if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+			        {
 					values.strength = Byte.parseByte(args[1]);
+			        } else {
+			        	
+			        	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
+			        	return false;
+			        }
+			        
 				presets.put(player.getName(), values);
-				player.sendMessage("Block lobbing preset " + args[0].toLowerCase() + " updated");
+				player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
 				return true;
 			}
 			catch(Exception e){
@@ -72,17 +89,31 @@ public class BlockLobber extends JavaPlugin{
 			try{
 				Presets values = new Presets(presets.get(player.getName()));
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+				{
 					values.loc = null;
+				} else {
 				if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				{
 					values.dir = null;
+				} else {
 				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+				{
 					values.mat = null;
+				} else {
 				if(args[0].equalsIgnoreCase("data"))
+				{
 					values.data = 0;
+				} else {
 				if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+				{
 					values.strength = 0;
+				} else {
+				
+					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + "Invalid preset selected!");
+			        	return false;
+				}
 				presets.put(player.getName(), values);
-				player.sendMessage("Block lobbing preset " + args[0].toLowerCase() + " cleared");
+				player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
 				return true;
 			}
 			catch(Exception e){
