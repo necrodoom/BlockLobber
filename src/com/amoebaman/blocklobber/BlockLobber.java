@@ -70,7 +70,33 @@ public class BlockLobber extends JavaPlugin{
                                        values.loc = location;
                                        
                                    }
-                                } else {
+                                   else
+                                   {
+                                   	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			        	return false;	
+                                   }
+                                }
+                                else
+                                {
+                                    if (args.length == 4)
+                                    {
+                                    if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+                                    {
+                                        double x = args[1];
+                                        double y = args[2];
+                                        double z = args[3];
+                                        String world = user.getWorld()();
+                                        Location location = new Location(world, x, y, z);
+                                        values.loc = location;	
+                                    }
+                                    else
+                                    {
+                                    	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			         	return false;
+                                    }
+                                }
+                                else
+                                {
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 				{
 					values.loc = player.getLocation();
@@ -108,6 +134,7 @@ public class BlockLobber extends JavaPlugin{
 				        }
 				    }
 				}
+                                }
                                 }
 			        
 				presets.put(player.getName(), values);
