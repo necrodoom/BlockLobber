@@ -58,7 +58,19 @@ public class BlockLobber extends JavaPlugin{
 			try
 			{
 				Presets values = new Presets(presets.get(player.getName()));
-				
+                                if (args.length == 5)
+                                {
+                                   if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+                                   {
+                                       double x = args[1];
+                                       double y = args[2];
+                                       double z = args[3];
+                                       String world = args[4];
+                                       Location location = new Location(world, x, y, z);
+                                       values.loc = location;
+                                       
+                                   }
+                                }
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 				{
 					values.loc = player.getLocation();
