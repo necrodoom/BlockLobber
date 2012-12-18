@@ -70,7 +70,7 @@ public class BlockLobber extends JavaPlugin{
                                        values.loc = location;
                                        
                                    }
-                                }
+                                } else {
 				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 				{
 					values.loc = player.getLocation();
@@ -108,6 +108,7 @@ public class BlockLobber extends JavaPlugin{
 				        }
 				    }
 				}
+                                }
 			        
 				presets.put(player.getName(), values);
 				player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
