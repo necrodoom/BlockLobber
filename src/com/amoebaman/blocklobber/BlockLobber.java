@@ -85,7 +85,7 @@ public class BlockLobber extends JavaPlugin{
                                         double x = args[1];
                                         double y = args[2];
                                         double z = args[3];
-                                        String world = user.getWorld()();
+                                        String world = user.getWorld();
                                         Location location = new Location(world, x, y, z);
                                         values.loc = location;	
                                     }
