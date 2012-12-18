@@ -18,9 +18,9 @@ commands:
     aliases: [lob-set, lobpreset, lobset, lob-preset, lobs]
     description: Defines a preset for lobbing blocks
     usage: |
-    /lob-set (mat|data|str) <value>
-    /lob-set <dir>
-    /lob-set <pos> [X] [Y] [Z] [world]
+           /lob-set (mat|data|str) <value>
+           /lob-set <dir>
+           /lob-set <pos> [X] [Y] [Z] [world]
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
