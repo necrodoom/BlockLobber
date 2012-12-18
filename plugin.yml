@@ -12,21 +12,21 @@ commands:
     description: Lobs a block
     usage: /lob-block <ID[:data]> <strength>
     permission: blocklobber.lob
-    permissions-message: You do not have permission to lob blocks
+    permissions-message: You dont have the permission to lob blocks!
     
   lob-preset:
     aliases: [lob-set, lobpreset, lobset, lob-preset, lobs]
     description: Defines a preset for lobbing blocks
     usage: /lob-set (pos|dir|mat|data|str) [value]
     permission: blocklobber.preset
-    permissions-message: You do not have permission to use lobber presets
+    permissions-message: You dont have the permission to use lobber presets!
     
   lob-clear:
     aliases: [lobclear, lobc]
     description: Clears a previously defined preset
     usage: /lob-clear (pos|dir|mat|data|str)
     permission: blocklobber.preset
-    permissions-message: You do not have permission to use lobber presets
+    permissions-message: You dont have the permission to use lobber presets!
     
 permissions:
 
