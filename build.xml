@@ -30,6 +30,7 @@ as the first entry and export the buildfile again. --><project basedir="." defau
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
+            <classpath refid="BlockLobber.classpath"/>
         </javac>
         <mkdir dir="jars/"/>
         <jar jarfile="jars/BlockLobber.jar" includes="**" basedir="bin" />
