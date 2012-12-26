@@ -45,7 +45,6 @@ public class BlockLobber extends JavaPlugin{
 			block.setVelocity((values.dir == null ? player.getLocation().getDirection() : values.dir).clone().multiply(values.strength).multiply(0.2));
 			block.setDropItem(player.getGameMode() == GameMode.CREATIVE);
 			return true;
-			}
 		}
 
 		if(command.getName().equals("lob-preset") && player != null)
