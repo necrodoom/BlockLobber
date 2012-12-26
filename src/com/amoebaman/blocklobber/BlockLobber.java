@@ -54,9 +54,9 @@ public class BlockLobber extends JavaPlugin{
                         {
                             if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
                             {
-                                 double x = args[1];
-                                 double y = args[2];
-                                 double z = args[3];
+                                 double x = Double.parseDouble(args[1]);
+                                 double y = Double.parseDouble(args[2]);
+                                 double z = Double.parseDouble(args[3]);
                                  String world = args[4];
                                  Location location = new Location(world, x, y, z);
                                  values.loc = location;
@@ -74,9 +74,9 @@ public class BlockLobber extends JavaPlugin{
                              {
                                  if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
                                  {
-                                     double x = args[1];
-                                     double y = args[2];
-                                     double z = args[3];
+                                     double x = Double.parseDouble(args[1]);
+                                     double y = Double.parseDouble(args[2]);
+                                     double z = Double.parseDouble(args[3]);
                                      String world = user.getWorld();
                                      Location location = new Location(world, x, y, z);
                                      values.loc = location;	
