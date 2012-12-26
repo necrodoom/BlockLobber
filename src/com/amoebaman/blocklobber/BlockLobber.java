@@ -59,7 +59,7 @@ public class BlockLobber extends JavaPlugin{
                                  double y = Double.parseDouble(args[2]);
                                  double z = Double.parseDouble(args[3]);
                                  String world = args[4];
-                                 Location location = new Location(world, x, y, z);
+                                 Location location = new Location(world, x, y, z, 0, 0);
                                  values.loc = location;
                                        
                             }
@@ -79,7 +79,7 @@ public class BlockLobber extends JavaPlugin{
                                      double y = Double.parseDouble(args[2]);
                                      double z = Double.parseDouble(args[3]);
                                      String world = user.getWorld();
-                                     Location location = new Location(world, x, y, z);
+                                     Location location = new Location(world, x, y, z, 0, 0);
                                      values.loc = location;	
                                  }
                                  else
