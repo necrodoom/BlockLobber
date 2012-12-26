@@ -178,7 +178,6 @@ public class BlockLobber extends JavaPlugin{
 		    presets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
 		    return true;
-			}
 		}
 		
 		return true;
