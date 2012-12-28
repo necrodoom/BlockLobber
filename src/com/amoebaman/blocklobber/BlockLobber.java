@@ -58,7 +58,7 @@ public class BlockLobber extends JavaPlugin{
                                  double x = Double.parseDouble(args[1]);
                                  double y = Double.parseDouble(args[2]);
                                  double z = Double.parseDouble(args[3]);
-                                 Location location = new Location(args[4], x, y, z);
+                                 Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
                                  values.loc = location;
                                        
                             }
@@ -77,7 +77,7 @@ public class BlockLobber extends JavaPlugin{
                                      double x = Double.parseDouble(args[1]);
                                      double y = Double.parseDouble(args[2]);
                                      double z = Double.parseDouble(args[3]);
-                                     Location location = new Location(user.getWorld(), x, y, z);
+                                     Location location = new Location(player.getWorld(), x, y, z);
                                      values.loc = location;	
                                  }
                                  else
