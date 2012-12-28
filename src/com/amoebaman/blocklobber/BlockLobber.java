@@ -29,6 +29,10 @@ public class BlockLobber extends JavaPlugin{
 		if(command.getName().equals("lob-block") && player != null)
 		{
 			Presets values = new Presets(presets.get(player.getName()));
+			if(args.length == 0)
+			{
+				return false;
+			}
 			if(args.length > 0)
 			{
 				String[] split = args[0].split(":");
@@ -52,6 +56,10 @@ public class BlockLobber extends JavaPlugin{
 		if(command.getName().equals("lob-preset") && player != null)
 		{
 			Presets values = new Presets(presets.get(player.getName()));
+			if (args.length == 0)
+			{
+			   return false;	
+			}
                         if (args.length == 5)
                         {
                             if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
@@ -138,6 +146,10 @@ public class BlockLobber extends JavaPlugin{
 		if(command.getName().equals("lob-clear") && player != null)
 		{
 			Presets values = new Presets(presets.get(player.getName()));
+			if (args.length == 0)
+			{
+			   return false;	
+			}
 			if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
 			{
 				values.loc = null;
