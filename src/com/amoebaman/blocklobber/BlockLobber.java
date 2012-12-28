@@ -6,7 +6,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Location;
-import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.FallingBlock;
@@ -59,8 +58,7 @@ public class BlockLobber extends JavaPlugin{
                                  double x = Double.parseDouble(args[1]);
                                  double y = Double.parseDouble(args[2]);
                                  double z = Double.parseDouble(args[3]);
-                                 World world = new World(args[4]);
-                                 Location location = new Location(world, x, y, z);
+                                 Location location = new Location(args[4], x, y, z);
                                  values.loc = location;
                                        
                             }
@@ -79,8 +77,7 @@ public class BlockLobber extends JavaPlugin{
                                      double x = Double.parseDouble(args[1]);
                                      double y = Double.parseDouble(args[2]);
                                      double z = Double.parseDouble(args[3]);
-                                     World world = new World(user.getWorld());
-                                     Location location = new Location(world, x, y, z);
+                                     Location location = new Location(user.getWorld(), x, y, z);
                                      values.loc = location;	
                                  }
                                  else
