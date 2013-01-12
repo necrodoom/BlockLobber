@@ -17,10 +17,11 @@ public class FBlockListener extends JavaPlugin {
         {
  
             @EventHandler
-            public fallenBlock(EntityChangeBlockEvent event) 
+            public void fallenBlock(EntityChangeBlockEvent event) 
             {
                 // insert debug test here
                 getLogger().info("Who calls entity a freaking 'what'" + what);
             }
         }, this);
     }
+}
