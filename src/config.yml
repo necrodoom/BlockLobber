@@ -1,4 +1,3 @@
-#Deny sand and gravel from spawning blocks on fall
-deny-sand-gravel: false
-#Deny everything but sand and gravel from spawning blocks on fall
-deny-all: false
+
+#Deny lobbed blocks from spawning blocks/items?
+deny-item-spawn: false
