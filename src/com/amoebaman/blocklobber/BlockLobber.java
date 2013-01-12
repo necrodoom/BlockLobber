@@ -19,6 +19,7 @@ public class BlockLobber extends JavaPlugin{
 	
 	public void onEnable(){
 		presets = new HashMap<String, Presets>();
+		getConfig();
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
