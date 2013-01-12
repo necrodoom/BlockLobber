@@ -10,13 +10,17 @@ import org.bukkit.configuration.file.FileConfiguration;
 public class FBlockListener extends JavaPlugin {
  
     @Override
-    public void onEnable() 
+    public void onEnable()
+    {
 
-        getServer().getPluginManager().registerEvents(new Listener() {
+        getServer().getPluginManager().registerEvents(new Listener()
+        {
  
             @EventHandler
-            public fallenBlock(EntityChangeBlockEvent event) {
+            public fallenBlock(EntityChangeBlockEvent event) 
+            {
                 // insert debug test here
                 getLogger().info("Who calls entity a freaking 'what'" + what);
             }
         }, this);
+    }
