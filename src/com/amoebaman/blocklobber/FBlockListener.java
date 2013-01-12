@@ -1,5 +1,6 @@
 package com.amoebaman.blocklobber;
 
+import java.lang.Object;
 import java.util.*;
 import java.util.logging.Logger;
 import org.bukkit.command.*;
