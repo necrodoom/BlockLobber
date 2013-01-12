@@ -1,0 +1,4 @@
+#Deny sand and gravel from spawning blocks on fall
+deny-sand-gravel: false
+#Deny everything but sand and gravel from spawning blocks on fall
+deny-all: false
