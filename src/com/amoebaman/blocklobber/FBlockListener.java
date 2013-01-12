@@ -6,6 +6,9 @@ import org.bukkit.command.*;
 import org.bukkit.event.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 
 public class FBlockListener extends JavaPlugin {
  
@@ -16,7 +19,7 @@ public class FBlockListener extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Listener()
         {
  
-            @EventHandler
+            @EventHandler(priority = EventPriority.NORMAL)
             public void fallenBlock(EntityChangeBlockEvent event) 
             {
                 // insert debug test here
