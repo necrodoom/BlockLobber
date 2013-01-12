@@ -1,3 +1,2 @@
-
 #Deny lobbed blocks from spawning blocks/items?
 deny-item-spawn: false
