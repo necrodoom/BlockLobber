@@ -13,7 +13,7 @@ public class FBlockListener extends JavaPlugin {
     public void onEnable()
     {
 
-        getServer().getPluginManager().registerEvents(new Listener()
+        getServer().getPluginManager().registerEvents(new Listener())
         {
  
             @EventHandler
