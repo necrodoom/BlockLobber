@@ -13,21 +13,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 
-public class FBlockListener extends JavaPlugin {
+public class FBlockListener implements Listener {
  
-    @Override
-    public void onEnable()
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void fallenBlock(EntityChangeBlockEvent event) 
     {
-
-        getServer().getPluginManager().registerEvents(new Listener()
-        {
- 
-            @EventHandler(priority = EventPriority.NORMAL)
-            public void fallenBlock(EntityChangeBlockEvent event) 
-            {
-                // insert debug test here
-                getLogger().info("Who calls entity a freaking 'what'" + getEntityType().toString);
-            }
-        }, this);
+        // insert debug test here
+        getLogger().info("Who calls entity a freaking 'what'" + event.getEntityType().toString());
     }
 }
