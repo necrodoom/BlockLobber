@@ -15,7 +15,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 
 public class FBlockListener implements Listener {
 
-    Logger log = Logger.getLogger(FBBlockListener.class);
+    Logger log = Logger.getLogger(FBBlockListener.class.getName());
 	
 	   @EventHandler(priority = EventPriority.NORMAL)
 	   public void fallenBlock(EntityChangeBlockEvent event)
