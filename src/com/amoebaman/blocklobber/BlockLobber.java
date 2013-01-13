@@ -20,6 +20,7 @@ public class BlockLobber extends JavaPlugin{
 	public void onEnable(){
 		presets = new HashMap<String, Presets>();
 		this.saveDefaultConfig();
+		getServer().getPluginManager().registerEvents(new FBlockListener(), this);
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
