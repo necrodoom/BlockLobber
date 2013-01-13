@@ -14,11 +14,13 @@ import org.bukkit.event.entity.EntityEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 
 public class FBlockListener implements Listener {
- 
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void fallenBlock(EntityChangeBlockEvent event) 
-    {
-        // insert debug test here
-        getLogger().info("Who calls entity a freaking 'what'" + event.getEntityType().toString());
-    }
+
+    Logger log = Logger.getLogger(FBBlockListener.class);
+	
+	   @EventHandler(priority = EventPriority.NORMAL)
+	   public void fallenBlock(EntityChangeBlockEvent event)
+	   {
+		   // insert debug test here
+		      log.info("Who calls entity a freaking 'what'" + event.getEntityType().toString());
+	   }
 }
