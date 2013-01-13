@@ -26,7 +26,7 @@ public class FBlockListener extends JavaPlugin {
             public void fallenBlock(EntityChangeBlockEvent event) 
             {
                 // insert debug test here
-                getLogger().info("Who calls entity a freaking 'what'" + getEntityType().toString);
+                getLogger().info("Who calls entity a freaking 'what'" + event.getEntityType().toString());
             }
         }, this);
     }
