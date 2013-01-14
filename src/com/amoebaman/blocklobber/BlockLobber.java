@@ -21,6 +21,11 @@ public class BlockLobber extends JavaPlugin{
 		presets = new HashMap<String, Presets>();
 		this.saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(new FBlockListener(), this);
+		private final BlockLobber instance;
+		public FBlockListener (BlockLobber instance)
+		{
+			this.instance = instance;
+		}
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
