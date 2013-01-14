@@ -20,7 +20,11 @@ public class FBlockListener implements Listener {
 	   @EventHandler(priority = EventPriority.NORMAL)
 	   public void fallenBlock(EntityChangeBlockEvent event)
 	   {
-		   // insert debug test here
-		      log.info("Who calls entity a freaking 'what'" + event.getEntityType().toString());
+	   	log.info("Who calls entity a freaking 'what' " + event.getEntityType().toString());
+		if (event.getEntityType().toString().equals("FALLING_BLOCK"))
+		{
+		  	
+		}
+		      
 	   }
 }
