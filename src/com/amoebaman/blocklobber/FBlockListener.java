@@ -15,7 +15,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 
 public class FBlockListener implements Listener {
 
-    instance.getLogger();
+    Logger log instance.getLogger();
     private final BlockLobber instance;
     public FBlockListener (BlockLobber instance)
     {
