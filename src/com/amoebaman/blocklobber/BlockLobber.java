@@ -197,6 +197,11 @@ public class BlockLobber extends JavaPlugin{
 		    return true;
 		}
 		
+		if(command.getName().equals("lob-reload")
+		{
+		     this.reloadConfig();
+		     return true;
+		}
 		return true;
 	}
 
