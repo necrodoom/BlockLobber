@@ -23,7 +23,7 @@ public class FBlockListener implements Listener {
 		if (event.getEntityType().toString().equals("FALLING_BLOCK"))
 		{
 		  String to = event.getTo.toString();
-		  if (to.equals("SAND") || to.equals("GRAVEL") || to.equals("ANVIL")
+		  if (to.equals("SAND") || to.equals("GRAVEL") || to.equals("ANVIL"))
 		  {
 		  	
 		  }
