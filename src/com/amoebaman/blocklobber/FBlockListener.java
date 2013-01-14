@@ -15,12 +15,12 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 
 public class FBlockListener implements Listener {
 
-    Logger log = instance.getLogger();
     private final BlockLobber instance;
     public FBlockListener (BlockLobber instance)
     {
 	this.instance = instance;
     }
+    Logger log = instance.getLogger();
  
 	   @EventHandler(priority = EventPriority.NORMAL)
 	   public void fallenBlock(EntityChangeBlockEvent event)
