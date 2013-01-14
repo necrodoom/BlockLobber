@@ -30,14 +30,14 @@ public class FBlockListener implements Listener {
 		  String to = event.getTo().toString();
 		  if (to.equals("SAND") || to.equals("GRAVEL") || to.equals("ANVIL"))
 		  {
-		  	if (BlockLobber.this.getConfig().getBoolean("deny-natural"))
+		  	if (instance.this.getConfig().getBoolean("deny-natural"))
 		  	{
 		  		event.setCancelled(true);
 		  	}
 		  }
 		  else
 		  {
-		  	if (BlockLobber.this.getConfig().getBoolean("deny-all"))
+		  	if (instance.this.getConfig().getBoolean("deny-all"))
 		  	{
 		  		event.setCancelled(true);
 		  	}
