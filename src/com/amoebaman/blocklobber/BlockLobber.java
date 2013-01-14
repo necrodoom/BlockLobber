@@ -33,7 +33,10 @@ public class BlockLobber extends JavaPlugin{
 			Presets values = new Presets(presets.get(player.getName()));
 			if(args.length == 0)
 			{
+				if (values.mat == null || values.strength == 0)
+				{
 				return false;
+				}
 			}
 			if(args.length > 0)
 			{
