@@ -31,6 +31,13 @@ commands:
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
+  lob-reload
+    aliases: [lobreload, lobr]
+    description: reloads config
+    usage: /lob-reload
+    permission: blocklobber.reload
+    permissions-messages: You dont have the permission to use lobber presets!
+    
 permissions:
 
   blocklobber.lob:
@@ -40,9 +47,14 @@ permissions:
   blocklobber.preset:
     description: Allows players to set presets for lobbing blocks
     default: op
+    
+  blocklobber.reload:
+    description: Allows players to reload config
+    default: op
 
   blocklobber.*:
     description: Grants all permissions
     children:
       blocklobber.lob: true
       blocklobber.preset: true
+      blocklobber.reload: true
