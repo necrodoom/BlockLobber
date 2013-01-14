@@ -1,4 +1,4 @@
 #Deny falling blocks that are natural from spawning blocks on fall
 deny-natural: false
-#Deny everything but sand and gravel from spawning blocks on fall
+#Deny everything but natural blocks from spawning blocks on fall
 deny-all: false
