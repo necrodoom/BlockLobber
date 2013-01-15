@@ -10,6 +10,12 @@ public class Presets implements Cloneable{
 	public byte data, strength;
 	public Location loc;
 	public Vector dir;
+	
+	public String projtype;
+	public byte projstrength;
+	public Location projloc;
+	public Vector projdir;
+	
 
 	public Presets(Presets other){
 		if(other != null){
@@ -18,6 +24,11 @@ public class Presets implements Cloneable{
 			strength = other.strength;
 			loc = other.loc;
 			dir = other.dir;
+			
+			projtype = other.projtype;
+			projstrength = other.projstrength;
+			projloc = projloc;
+			projdir = projdir;
 		}
 	}
 	
