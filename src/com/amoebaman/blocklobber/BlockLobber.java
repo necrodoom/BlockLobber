@@ -16,9 +16,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BlockLobber extends JavaPlugin{
 	
 	private HashMap<String, Presets> presets;
+	private HashMap<String, ProjPresets> projpresets;
 	
 	public void onEnable(){
 		presets = new HashMap<String, Presets>();
+		projpresets = new HashMap<String, ProjPresets>();
 		this.saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(new FBlockListener(this), this);
 	}
