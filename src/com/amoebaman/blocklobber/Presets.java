@@ -25,7 +25,7 @@ public class Presets implements Cloneable
 	}	
 }
 
-# ---- PROJECTILE SECTION ----
+// ---- PROJECTILE SECTION ----
 public class ProjPresets implements Cloneable
 {
 	
