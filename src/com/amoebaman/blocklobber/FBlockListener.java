@@ -26,10 +26,10 @@ public class FBlockListener implements Listener {
 	   @EventHandler(priority = EventPriority.NORMAL)
 	   public void fallenBlock(EntityChangeBlockEvent event)
 	   {
-		if (event.getEntityType().toString().equals("FALLING_BLOCK"))
+	   	Material To = event.getTo();
+		if (event.getEntityType() == EntityType.FALLING_BLOCK))
 		{
-		  String to = event.getTo().toString();
-		  if (to.equals("SAND") || to.equals("GRAVEL") || to.equals("ANVIL"))
+		  if ((To == Material.SAND) || (To == Material.GRAVEL) || (To == Material.ANVIL))
 		  {
 		  	if (instance.getConfig().getBoolean("deny-natural"))
 		  	{
