@@ -31,12 +31,12 @@ commands:
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
-  lob-reload
+  lob-reload:
     aliases: [lobreload, lobr]
     description: reloads config
     usage: /lob-reload
     permission: blocklobber.reload
-    permissions-messages: You dont have the permission to use lobber presets!
+    permissions-messages: You dont have the permission to reload config!
     
 permissions:
 
