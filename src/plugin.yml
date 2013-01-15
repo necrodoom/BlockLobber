@@ -31,6 +31,30 @@ commands:
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
+  lob-projectile:
+    aliases: [lobprojectile, lob-proj, lobproj, lobp]
+    description: Lobs a projectile
+    usage: /lob-projectile <type> <strength>
+    permission: blocklobber.projectile.lob
+    permissions-message: You dont have the permission to lob projectiles!
+    
+  lob-projectile-preset:
+    aliases: [lob-setp, lobpresetp, lobsetp, lob-presetp, lobsp]
+    description: Defines a preset for lobbing projectile
+    usage: |
+           /lob-setp (value|str) <value>
+           /lob-setp <dir>
+           /lob-setp <pos> [X] [Y] [Z] [world]
+    permission: blocklobber.projectile.preset
+    permissions-message: You dont have the permission to use projectile presets!
+    
+  lob-projectile-clear:
+    aliases: [lobclearp, lobcp]
+    description: Clears a previously defined projectile preset
+    usage: /lob-clearp (pos|dir|mat|data|str)
+    permission: blocklobber.projectile.preset
+    permissions-message: You dont have the permission to use projectile presets!
+    
   lob-reload:
     aliases: [lobreload, lobr]
     description: reloads config
@@ -48,13 +72,40 @@ permissions:
     description: Allows players to set presets for lobbing blocks
     default: op
     
+  blocklobber.projectile.lob:
+    description: Allows players to lob projectiles
+    default: op
+    
+  blocklobber.projectile.preset:
+    description: Allows players to lob projectiles
+    default: op
+      
   blocklobber.reload:
     description: Allows players to reload config
     default: op
 
+  blocklobber.admin:
+    description: Grants all admin permissions
+    children: 
+      blocklobber.reload: true
+  
+  blocklobber.block:
+    description: Grants all block lobbing permissions
+    children:
+      blocklobber.lob: true
+      blocklobber.preset: true
+      
+  blocklobber.projectile:
+    description: Grants all projectile lobbing permissions
+    children:
+      blocklobber.projectile.lob: true
+      blocklobber.projectile.preset: true
+    
   blocklobber.*:
     description: Grants all permissions
     children:
       blocklobber.lob: true
       blocklobber.preset: true
       blocklobber.reload: true
+      blocklobber.projectile.lob: true
+      blocklobber.projectile.preset: true
