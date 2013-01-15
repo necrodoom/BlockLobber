@@ -26,7 +26,7 @@ public class Presets implements Cloneable
 }
 
 # ---- PROJECTILE SECTION ----
-public class Presets implements Cloneable
+public class ProjPresets implements Cloneable
 {
 	
 	public String projtype;
@@ -34,7 +34,7 @@ public class Presets implements Cloneable
 	public Location projloc;
 	public Vector projdir;
 	
-	public Presets(Presets other)
+	public ProjPresets(Presets other)
 	{
 		if(other != null)
 		{			
