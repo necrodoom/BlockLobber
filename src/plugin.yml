@@ -27,7 +27,7 @@ commands:
   lob-clear:
     aliases: [lobclear, lobc]
     description: Clears a previously defined preset
-    usage: /lob-clear (pos|dir|mat|data|str)
+    usage: /lob-clear (pos|dir|mat|data|str|all)
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
