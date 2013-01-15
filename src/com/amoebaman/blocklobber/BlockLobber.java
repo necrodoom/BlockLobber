@@ -187,7 +187,7 @@ public class BlockLobber extends JavaPlugin{
 					}
 					else
 					{
-					    if (args[0].equalsIgnoreCase("all"))
+					    if ((args[0].equalsIgnoreCase("all") || (args[0].equalsIgnoreCase("everything")))
 					    {
 						values.loc = null;
 						values.dir = null;
