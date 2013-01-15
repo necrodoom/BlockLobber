@@ -210,6 +210,25 @@ public class BlockLobber extends JavaPlugin{
 		    return true;
 		}
 		
+		
+		// ---- PROJECTILE SECTION ----
+		if(command.getName().equals("lob-projectile"))
+		{
+		
+		}
+		
+		if(command.getName().equals("lob-projectile-preset"))
+		{
+		
+		}
+		
+		if(command.getName().equals("lob-projectile-clear"))
+		{
+		
+		}
+		
+		
+		// ---- ADMINSTRATION SECTION ----
 		if(command.getName().equals("lob-reload"))
 		{
 		     this.reloadConfig();
