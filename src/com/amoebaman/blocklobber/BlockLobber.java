@@ -185,8 +185,19 @@ public class BlockLobber extends JavaPlugin{
 					}
 					else
 					{
+					     if (args[0].equalsIgnoreCase("all"))
+					     {
+						values.loc = null;
+						values.dir = null;
+						values.mat = null;
+						values.data = 0;
+						values.strength = 0;
+					     }
+					     else
+					     {
 						player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
 			       			return false;
+					     }
 					}
 				    }
 				}
