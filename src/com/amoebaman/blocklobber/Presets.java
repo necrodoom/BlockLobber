@@ -27,8 +27,8 @@ public class Presets implements Cloneable{
 			
 			projtype = other.projtype;
 			projstrength = other.projstrength;
-			projloc = projloc;
-			projdir = projdir;
+			projloc = other.projloc;
+			projdir = other.projdir;
 		}
 	}
 	
