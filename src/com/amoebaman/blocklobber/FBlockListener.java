@@ -27,7 +27,7 @@ public class FBlockListener implements Listener {
 	   public void fallenBlock(EntityChangeBlockEvent event)
 	   {
 	   	Material To = event.getTo();
-		if (event.getEntityType() == EntityType.FALLING_BLOCK))
+		if (event.getEntityType() == EntityType.FALLING_BLOCK)
 		{
 		  if ((To == Material.SAND) || (To == Material.GRAVEL) || (To == Material.ANVIL))
 		  {
