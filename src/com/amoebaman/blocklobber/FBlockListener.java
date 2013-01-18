@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.logging.Logger;
 import org.bukkit.command.*;
 import org.bukkit.event.*;
+import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
