@@ -1,3 +1,9 @@
+package com.amoebaman.blocklobber;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.util.Vector;
+
 public class ProjPresets implements Cloneable
 {
   
