@@ -42,7 +42,7 @@ commands:
     aliases: [lob-setp, lobpresetp, lobsetp, lob-presetp, lobsp]
     description: Defines a preset for lobbing projectile
     usage: |
-           /lob-setp (value|str) <value>
+           /lob-setp (type|str) <value>
            /lob-setp <dir>
            /lob-setp <pos> [X] [Y] [Z] [world]
     permission: blocklobber.projectile.preset
@@ -51,7 +51,7 @@ commands:
   lob-projectile-clear:
     aliases: [lobclearp, lobcp]
     description: Clears a previously defined projectile preset
-    usage: /lob-clearp (pos|dir|mat|data|str)
+    usage: /lob-clearp (pos|type|data|str)
     permission: blocklobber.projectile.preset
     permissions-message: You dont have the permission to use projectile presets!
     
