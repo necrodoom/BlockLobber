@@ -12,7 +12,7 @@ public class ProjPresets implements Cloneable
 	public Location projloc;
 	public Vector projdir;
 	
-	public ProjPresets(Presets other)
+	public ProjPresets(ProjPresets other)
 	{
 		if(other != null)
 		{			
