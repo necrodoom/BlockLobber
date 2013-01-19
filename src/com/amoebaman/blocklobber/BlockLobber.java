@@ -269,25 +269,19 @@ public class BlockLobber extends JavaPlugin{
 				{
 				    if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
 				    {
-					    values.dir = player.getLocation().getDirection();
+					    values.projdir = player.getLocation().getDirection();
 				    }
 				    else
 				    {
-				        if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+				        if(args[0].equalsIgnoreCase("type"))
 				        {
-					        values.mat = getMat(args[1]);
+					        values.projtype = args[1];
 				        }
 				        else
 				        {
-				            if(args[0].equalsIgnoreCase("data"))
-					    {
-						    values.data = Byte.parseByte(args[1]);
-					    }
-					    else
-					    {
 						if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
 			        		{
-							values.strength = Byte.parseByte(args[1]);
+							values.projstrength = Byte.parseByte(args[1]);
 			        		}
 			        		else
 			        		{
@@ -302,7 +296,7 @@ public class BlockLobber extends JavaPlugin{
                         }
 			        
 		    presets.put(player.getName(), values);
-		    player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
+		    player.sendMessage(ChatColor.YELLOW + "Projectile lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
 		    return true;
 		}
 		
