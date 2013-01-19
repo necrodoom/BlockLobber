@@ -9,7 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity; 
+import org.bukkit.entity.Arrow; 
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
