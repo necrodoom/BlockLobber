@@ -294,7 +294,7 @@ public class BlockLobber extends JavaPlugin{
                             }
                         }
 			        
-		    presets.put(player.getName(), values);
+		    projpresets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Projectile lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
 		    return true;
 		}
@@ -326,7 +326,7 @@ public class BlockLobber extends JavaPlugin{
 				{
 				    if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
 				    {
-					values.ptojstrength = 0;
+					values.projstrength = 0;
 				    }
 				    else
 				    {
@@ -346,7 +346,7 @@ public class BlockLobber extends JavaPlugin{
 				}
 			    }
 			}
-		    presets.put(player.getName(), values);
+		    projpresets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Projectile lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " cleared!");
 		    return true;
 		}
