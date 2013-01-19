@@ -323,7 +323,7 @@ public class BlockLobber extends JavaPlugin{
 					values.projtype = null;
 				}
 				else
-
+				{
 				    if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
 				    {
 					values.ptojstrength = 0;
