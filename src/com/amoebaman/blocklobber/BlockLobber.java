@@ -228,7 +228,7 @@ public class BlockLobber extends JavaPlugin{
 				values.projtype = args[0].toLowerCase();
 			}
 			//Arrow, Egg, EnderPearl, Fireball, Fish(?), LargeFireball, SmallFireball(?), Snowball, ThrownExpBottle(?), ThrownPotion, WitherSkull
-			if (values.projtype == "arrow")
+			if (values.projtype.equals("arrow"))
 			{
 			    Arrow arrow = player.getWorld().spawn(values.projloc, Arrow.class);
 			    arrow.setShooter(player);
