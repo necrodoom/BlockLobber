@@ -233,6 +233,10 @@ public class BlockLobber extends JavaPlugin{
 			    Arrow arrow = player.getWorld().spawn(values.projloc, Arrow.class);
 			    arrow.setShooter(player);
 			}
+			else
+			{
+			    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile selected!");
+			}
 		}
 		
 		if(command.getName().equals("lob-projectile-preset") && player != null)
