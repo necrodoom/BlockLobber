@@ -279,16 +279,15 @@ public class BlockLobber extends JavaPlugin{
 				        }
 				        else
 				        {
-						if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
-			        		{
-							values.projstrength = Byte.parseByte(args[1]);
-			        		}
-			        		else
-			        		{
-			        			player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			        			return false;
-			        		}
-					    }
+					    if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+			        	    {
+						values.projstrength = Byte.parseByte(args[1]);
+			        	    }
+			        	    else
+			        	    {
+			        		player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			        		return false;
+			        	    }
 				        }
 				    }
 				}
