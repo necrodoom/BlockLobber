@@ -10,7 +10,7 @@ commands:
   lob-block:
     aliases: [lob, lobblock, blocklobber]
     description: Lobs a block
-    usage: /lob-block <ID[:data]> <strength>
+    usage: /lob <ID[:data]> <strength>
     permission: blocklobber.lob
     permissions-message: You dont have the permission to lob blocks!
     
@@ -18,23 +18,23 @@ commands:
     aliases: [lob-set, lobpreset, lobset, lob-preset, lobs]
     description: Defines a preset for lobbing blocks
     usage: |
-           /lob-set (mat|data|str) <value>
-           /lob-set <dir>
-           /lob-set <pos> [X] [Y] [Z] [world]
+           /lobs (mat|data|str) <value>
+           /lobs <dir>
+           /lobs <pos> [X] [Y] [Z] [world]
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
   lob-clear:
     aliases: [lobclear, lobc]
     description: Clears a previously defined preset
-    usage: /lob-clear (pos|dir|mat|data|str|all)
+    usage: /lobc (pos|dir|mat|data|str|all)
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
   lob-projectile:
     aliases: [lobprojectile, lob-proj, lobproj, lobp]
     description: Lobs a projectile
-    usage: /lob-projectile <type> <strength>
+    usage: /lobp <type> <strength>
     permission: blocklobber.projectile.lob
     permissions-message: You dont have the permission to lob projectiles!
     
@@ -42,23 +42,23 @@ commands:
     aliases: [lob-setp, lobpresetp, lobsetp, lob-presetp, lobsp]
     description: Defines a preset for lobbing projectile
     usage: |
-           /lob-setp (type|str) <value>
-           /lob-setp <dir>
-           /lob-setp <pos> [X] [Y] [Z] [world]
+           /lobsp (type|str) <value>
+           /lobsp <dir>
+           /lobsp <pos> [X] [Y] [Z] [world]
     permission: blocklobber.projectile.preset
     permissions-message: You dont have the permission to use projectile presets!
     
   lob-projectile-clear:
     aliases: [lobclearp, lobcp]
     description: Clears a previously defined projectile preset
-    usage: /lob-clearp (pos|type|data|str)
+    usage: /lobcp (pos|type|data|str)
     permission: blocklobber.projectile.preset
     permissions-message: You dont have the permission to use projectile presets!
     
   lob-reload:
     aliases: [lobreload, lobr]
     description: reloads config
-    usage: /lob-reload
+    usage: /lobr
     permission: blocklobber.reload
     permissions-messages: You dont have the permission to reload config!
     
