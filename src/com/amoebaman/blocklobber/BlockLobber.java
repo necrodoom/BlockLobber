@@ -226,6 +226,7 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.projtype == args[0];
 			}
+			#Arrow, Egg, EnderPearl, Fireball, Fish(?), LargeFireball, SmallFireball(?), Snowball, ThrownExpBottle(?), ThrownPotion, WitherSkull
 		}
 		
 		if(command.getName().equals("lob-projectile-preset") && player != null)
