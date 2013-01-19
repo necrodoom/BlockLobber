@@ -214,7 +214,18 @@ public class BlockLobber extends JavaPlugin{
 		// ---- PROJECTILE SECTION ----
 		if(command.getName().equals("lob-projectile") && player != null)
 		{
-		
+		  	ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
+			if(args.length == 0)
+			{
+				if (values.projtype == null)
+				{
+				return false;
+				}
+			}
+			if(args.length > 0)
+			{
+				values.projtype == args[0];
+			}
 		}
 		
 		if(command.getName().equals("lob-projectile-preset") && player != null)
