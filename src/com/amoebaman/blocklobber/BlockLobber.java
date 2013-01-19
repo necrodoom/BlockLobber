@@ -227,6 +227,14 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.projtype = args[0].toLowerCase();
 			}
+			if (values.projloc == null)
+			{
+				values.projloc = player.getLocation();
+			}
+			if (values.projdir == null)
+			{
+				values.projdir = player.getLocation().getDirection();
+			}
 			//Arrow, Egg, EnderPearl, Fireball, Fish(?), LargeFireball, SmallFireball(?), Snowball, ThrownExpBottle(?), ThrownPotion, WitherSkull
 			if (values.projtype.equals("arrow"))
 			{
