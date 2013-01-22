@@ -27,9 +27,10 @@ public class BlockLobber extends JavaPlugin{
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+		String args0 = "";
 		if (args.length > 0)
 		{
-		    String args0 = args[0].toLowerCase();
+		    args0 = args[0].toLowerCase();
 		}
 		Player player = null;
 		if(sender instanceof Player)
