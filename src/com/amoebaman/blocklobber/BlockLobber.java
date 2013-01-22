@@ -252,7 +252,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 			if (values.projdir == null)
 			{
-				values.projdir = player.getLocation().getDirection();
+				values.projdir = player.getEyeLocation().getDirection();
 			}
 		        Class<? extends Entity> type = Fireball.class;
 		        Projectile projectile;
