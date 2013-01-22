@@ -286,9 +286,9 @@ public class BlockLobber extends JavaPlugin{
 				type = LargeFireball.class;
 			}
 			final Vector direction = values.projdir.multiply(speed);
-			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(values.projdir.getX(), values.projdir.getY(), values.projdir.getZ()), type);
+			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
 			projectile.setShooter(player);
-			projectile.setVelocity(values.projdir);
+			projectile.setVelocity(direction);
 		}
 		
 		if(command.getName().equals("lobps") && player != null)
