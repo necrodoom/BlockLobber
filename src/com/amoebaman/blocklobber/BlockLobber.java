@@ -27,6 +27,7 @@ public class BlockLobber extends JavaPlugin{
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+		String args0 = args[0].toLowerCase();
 		Player player = null;
 		if(sender instanceof Player)
 			player = (Player) sender;
@@ -77,7 +78,7 @@ public class BlockLobber extends JavaPlugin{
 			}
                         if (args.length == 5)
                         {
-                            if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+                            if((args0.equals("pos")) || (args0.equals("position")))
                             {
                                  double x = Double.parseDouble(args[1]);
                                  double y = Double.parseDouble(args[2]);
@@ -96,7 +97,7 @@ public class BlockLobber extends JavaPlugin{
                         {
                              if (args.length == 4)
                              {
-                                 if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+                                 if((args0.equals("pos")) || (args0.equals("position")))
                                  {
                                      double x = Double.parseDouble(args[1]);
                                      double y = Double.parseDouble(args[2]);
@@ -112,19 +113,19 @@ public class BlockLobber extends JavaPlugin{
                              }
                              else
                              {
-				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+				if((args0.equals("pos")) || (args0.equals("position")))
 				{
 					values.loc = player.getLocation();
 				}
 				else
 				{
-				    if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				    if((args0.equals("dir")) || (args0.equals("direction")))
 				    {
 					    values.dir = player.getLocation().getDirection();
 				    }
 				    else
 				    {
-				        if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+				        if((args0.equals("mat")) || (args0.equals("material")))
 				        {
 				            if (getMat(args[1]).isBlock())
 				            {
@@ -137,13 +138,13 @@ public class BlockLobber extends JavaPlugin{
 				        }
 				        else
 				        {
-				            if(args[0].equalsIgnoreCase("data"))
+				            if(args0.equals("data"))
 					    {
 						    values.data = Byte.parseByte(args[1]);
 					    }
 					    else
 					    {
-						if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+						if((args0.equals("str")) || (args0.equals("strength")))
 			        		{
 							values.strength = Byte.parseByte(args[1]);
 			        		}
@@ -172,37 +173,37 @@ public class BlockLobber extends JavaPlugin{
 			{
 			   return false;	
 			}
-			if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+			if((args0.equals("pos")) || (args0.equals("position")))
 			{
 				values.loc = null;
 			}
 			else
 			{
-		            if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+		            if((args0.equals("dir")) || (args0.equals("direction")))
 		            {
 				    values.dir = null;
 			    }
 			    else
 			    {
-				if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
+				if((args0.equals("mat")) || (args0.equals("material")))
 				{
 					values.mat = null;
 				}
 				else
 				{
-				    if(args[0].equalsIgnoreCase("data"))
+				    if(args0.equals("data"))
 				    {
 					    values.data = 0;
 				    }
 				    else
 				    {
-					if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+					if((args0.equals("str")) || (args0.equals("strength")))
 					{
 						values.strength = 0;
 					}
 					else
 					{
-					    if ((args[0].equalsIgnoreCase("all")) || (args[0].equalsIgnoreCase("everything")))
+					    if ((args0.equals("all")) || (args0.equals("everything")))
 					    {
 						values.loc = null;
 						values.dir = null;
@@ -243,7 +244,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 			if (values.projloc == null)
 			{
-				values.projloc = player.getLocation();
+				values.projloc = player.getLocation().add(0,1,0);
 			}
 			if (values.projdir == null)
 			{
@@ -272,7 +273,7 @@ public class BlockLobber extends JavaPlugin{
 			}
                         if (args.length == 5)
                         {
-                            if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+                            if((args0.equals("pos")) || (args0.equals("position")))
                             {
                                  double x = Double.parseDouble(args[1]);
                                  double y = Double.parseDouble(args[2]);
@@ -291,7 +292,7 @@ public class BlockLobber extends JavaPlugin{
                         {
                              if (args.length == 4)
                              {
-                                 if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+                                 if((args0.equals("pos")) || (args0.equals("position")))
                                  {
                                      double x = Double.parseDouble(args[1]);
                                      double y = Double.parseDouble(args[2]);
@@ -307,25 +308,25 @@ public class BlockLobber extends JavaPlugin{
                              }
                              else
                              {
-				if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+				if((args0.equals("pos")) || (args0.equals("position")))
 				{
 					values.projloc = player.getLocation();
 				}
 				else
 				{
-				    if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+				    if((args0.equals("dir")) || (args0.equals("direction")))
 				    {
 					    values.projdir = player.getLocation().getDirection();
 				    }
 				    else
 				    {
-				        if(args[0].equalsIgnoreCase("type"))
+				        if(args0.equals("type"))
 				        {
 					        values.projtype = args[1];
 				        }
 				        else
 				        {
-					    if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+					    if((args0.equals("str")) || (args0.equals("strength")))
 			        	    {
 						values.projstrength = Byte.parseByte(args[1]);
 			        	    }
@@ -352,31 +353,31 @@ public class BlockLobber extends JavaPlugin{
 			{
 			   return false;	
 			}
-			if((args[0].equalsIgnoreCase("pos")) || (args[0].equalsIgnoreCase("position")))
+			if((args0.equals("pos")) || (args0.equals("position")))
 			{
 				values.projloc = null;
 			}
 			else
 			{
-		            if((args[0].equalsIgnoreCase("dir")) || (args[0].equalsIgnoreCase("direction")))
+		            if((args0.equals("dir")) || (args0.equals("direction")))
 		            {
 				    values.projdir = null;
 			    }
 			    else
 			    {
-				if(args[0].equalsIgnoreCase("type"))
+				if(args0.equals("type"))
 				{
 					values.projtype = null;
 				}
 				else
 				{
-				    if((args[0].equalsIgnoreCase("str")) || (args[0].equalsIgnoreCase("strength")))
+				    if((args0.equals("str")) || (args0.equals("strength")))
 				    {
 					values.projstrength = 0;
 				    }
 				    else
 				    {
-					if ((args[0].equalsIgnoreCase("all")) || (args[0].equalsIgnoreCase("everything")))
+					if ((args0.equals("all")) || (args0.equals("everything")))
 					{
 					    values.projloc = null;
 					    values.projdir = null;
