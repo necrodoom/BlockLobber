@@ -253,10 +253,9 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.projdir = player.getLocation().getDirection();
 			}
-			//Arrow, Egg, EnderPearl, Fireball, Fish(?), LargeFireball, SmallFireball(?), Snowball, ThrownExpBottle(?), ThrownPotion, WitherSkull
 		        Class<? extends Entity> type = Fireball.class;
 		        Projectile projectile;
-		        int speed = 2;
+		        int speed = (values.projstrength / 5);
 			if (args0.equals("fireball"))
 			{
 				type = SmallFireball.class;
@@ -285,10 +284,10 @@ public class BlockLobber extends JavaPlugin{
 			{
 				type = LargeFireball.class;
 			}
-			//final Vector direction = values.projdir.multiply(speed);
-			//projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
-			//projectile.setShooter(player);
-			//projectile.setVelocity(direction);
+			final Vector direction = values.projdir.multiply(speed);
+			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(values.projdir.getX(), values.projdir.getY(), values.projdir.getZ()), type);
+			projectile.setShooter(player);
+			projectile.setVelocity(values.projdir);
 		}
 		
 		if(command.getName().equals("lobps") && player != null)
