@@ -44,7 +44,14 @@ public class BlockLobber extends JavaPlugin{
 			if(args.length > 0)
 			{
 				String[] split = args[0].split(":");
-				values.mat = getMat(split[0]);
+				if (getMat(split[0]).isBlock())
+				{
+				    values.mat = getMat(split[0]);
+				}
+				else
+				{
+				    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Block selected!");
+				}
 				if(split.length > 1)
 				{
 					values.data = Byte.parseByte(split[1]);
@@ -119,7 +126,14 @@ public class BlockLobber extends JavaPlugin{
 				    {
 				        if((args[0].equalsIgnoreCase("mat")) || (args[0].equalsIgnoreCase("material")))
 				        {
+				            if (getMat(args[1]).isBlock())
+				            {
 					        values.mat = getMat(args[1]);
+				            }
+				            else
+				            {
+				            	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Block selected!");
+				            }
 				        }
 				        else
 				        {
