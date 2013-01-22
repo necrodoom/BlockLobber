@@ -431,6 +431,33 @@ public class BlockLobber extends JavaPlugin{
 	    	    }
 		    player.sendMessage(ChatColor.YELLOW + "Damage value: " + ChatColor.GREEN + values.data);
 		    player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + values.strength);
+		    player.sendMessage();
+		    player.sendMessage(ChatColor.YELLOW + "Projectile Presets:");
+		    if(projvalues.projloc == null)
+		    {
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.RED + "Unset");
+		    }
+		    else
+		    {
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + projvalues.projloc.getX() + "," + projvalues.projloc.getY() + "," + projvalues.projloc.getZ() + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld());
+		    }
+		    if(projvalues.projdir == null)
+		    {
+		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.RED + "Unset");
+		    }
+		    else
+		    {
+		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.toString());
+		    }
+	    	    if(projvalues.projtype == null)
+	    	    {
+	    	    	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.RED + "Unset");
+	    	    }
+	    	    else
+	    	    {
+	    	    	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.GREEN + projvalues.projtype.toLowerCase());
+	    	    }
+		    player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + projvalues.projstrength);
 		    
 		}
 		
