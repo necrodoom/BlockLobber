@@ -257,33 +257,38 @@ public class BlockLobber extends JavaPlugin{
 		        Class<? extends Entity> type = Fireball.class;
 		        Projectile projectile;
 		        int speed = (values.projstrength / 5);
-			if (args0.equals("fireball"))
+			if (values.projtype.equals("fireball"))
 			{
 				type = SmallFireball.class;
 			}
-			else if (args0.equals("arrow"))
+			else if(values.projtype.equals("largefireball"))
+			{
+				type = LargeFireball.class;
+			}
+			else if (values.projtype.equals("arrow"))
 			{
 				type = Arrow.class;
 			}
-			else if (args0.equals("skull"))
+			else if (values.projtype.equals("skull"))
 			{
 				type = WitherSkull.class;
 			}
-			else if (args0.equals("egg"))
+			else if (values.projtype.equals("egg"))
 			{
 				type = Egg.class;
 			}
-			else if(args0.equals("snowball"))
+			else if(values.projtype.equals("snowball"))
 			{
 				type = Snowball.class;
 			}
-			else if(args0.equals("expbottle"))
+			else if(values.projtype.equals("expbottle"))
 			{
 				type = ThrownExpBottle.class;
 			}
-			else if(args0.equals("largefireball"))
+			else
 			{
-				type = LargeFireball.class;
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile type selected!");
+				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.DARK_YELLOW + " arrow, skill, egg, snowball, expbottle, fireball, largefireball");
 			}
 			final Vector direction = values.projdir.multiply(speed);
 			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
@@ -349,7 +354,7 @@ public class BlockLobber extends JavaPlugin{
 				    {
 				        if(args0.equals("type"))
 				        {
-					        values.projtype = args[1];
+					        values.projtype = args[1].toLowerCase();
 				        }
 				        else
 				        {
@@ -438,7 +443,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)(values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().toString());
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)(values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().getName());
 		    }
 		    if(values.dir == null)
 		    {
@@ -468,7 +473,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(projvalues.projloc.getX()) + ", " + (int)(projvalues.projloc.getY()) + ", " + (int)(projvalues.projloc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld().toString());
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(projvalues.projloc.getX()) + ", " + (int)(projvalues.projloc.getY()) + ", " + (int)(projvalues.projloc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld().getName());
 		    }
 		    if(projvalues.projdir == null)
 		    {
