@@ -412,7 +412,7 @@ public class BlockLobber extends JavaPlugin{
 	    	    }
 	    	    else
 	    	    {
-	    	    	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.GREEN + values.mat.toLowerCase());
+	    	    	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.GREEN + values.mat.toString().toLowerCase());
 	    	    }
 		    player.sendMessage(ChatColor.YELLOW + "Damage value: " + ChatColor.GREEN + values.data);
 		    player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + values.strength);
