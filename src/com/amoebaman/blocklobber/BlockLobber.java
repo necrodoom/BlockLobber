@@ -9,9 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Arrow; 
-import org.bukkit.entity.FallingBlock;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*; 
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class BlockLobber extends JavaPlugin{
@@ -256,6 +254,7 @@ public class BlockLobber extends JavaPlugin{
 				values.projdir = player.getLocation().getDirection();
 			}
 			//Arrow, Egg, EnderPearl, Fireball, Fish(?), LargeFireball, SmallFireball(?), Snowball, ThrownExpBottle(?), ThrownPotion, WitherSkull
+		        Class<? extends Entity> type = Fireball.class;
 		        Projectile projectile;
 		        int speed = 2;
 			if (args0.equals("fireball"))
