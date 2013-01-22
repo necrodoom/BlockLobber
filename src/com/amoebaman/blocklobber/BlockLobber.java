@@ -31,7 +31,7 @@ public class BlockLobber extends JavaPlugin{
 		if(sender instanceof Player)
 			player = (Player) sender;
 		
-		if(command.getName().equals("lob-block") && player != null)
+		if(command.getName().equals("lob") && player != null)
 		{
 			Presets values = new Presets(presets.get(player.getName()));
 			if(args.length == 0)
@@ -68,7 +68,7 @@ public class BlockLobber extends JavaPlugin{
 			return true;
 		}
 
-		if(command.getName().equals("lob-preset") && player != null)
+		if(command.getName().equals("lobs") && player != null)
 		{
 			Presets values = new Presets(presets.get(player.getName()));
 			if (args.length == 0)
@@ -165,7 +165,7 @@ public class BlockLobber extends JavaPlugin{
 		}
 		
 		
-		if(command.getName().equals("lob-clear") && player != null)
+		if(command.getName().equals("lobc") && player != null)
 		{
 			Presets values = new Presets(presets.get(player.getName()));
 			if (args.length == 0)
@@ -227,7 +227,7 @@ public class BlockLobber extends JavaPlugin{
 		
 		
 		// ---- PROJECTILE SECTION ----
-		if(command.getName().equals("lob-projectile") && player != null)
+		if(command.getName().equals("lobp") && player != null)
 		{
 		  	ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
 			if(args.length == 0)
@@ -263,7 +263,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 		}
 		
-		if(command.getName().equals("lob-projectile-preset") && player != null)
+		if(command.getName().equals("lobps") && player != null)
 		{
 			ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
 			if (args.length == 0)
@@ -345,7 +345,7 @@ public class BlockLobber extends JavaPlugin{
 		    return true;
 		}
 		
-		if(command.getName().equals("lob-projectile-clear") && player != null)
+		if(command.getName().equals("lobpc") && player != null)
 		{
 			ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
 			if (args.length == 0)
@@ -399,7 +399,7 @@ public class BlockLobber extends JavaPlugin{
 		
 		
 		// ---- MISC SECTION ----
-		if(command.getName().equals("lob-preset-view") && player != null)
+		if(command.getName().equals("lobsv") && player != null)
 		{
 		    Presets values = new Presets(presets.get(player.getName()));
 		    ProjPresets projvalues = new ProjPresets(projpresets.get(player.getName()));
@@ -435,7 +435,7 @@ public class BlockLobber extends JavaPlugin{
 		
 		
 		// ---- ADMINSTRATION SECTION ----
-		if(command.getName().equals("lob-reload"))
+		if(command.getName().equals("lobr"))
 		{
 		    this.reloadConfig();
 		    return true;
