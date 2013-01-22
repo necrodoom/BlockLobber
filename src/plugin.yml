@@ -7,15 +7,15 @@ description: Allows players to throw blocks
 
 commands:
 
-  lob-block:
-    aliases: [lob, lobblock, blocklobber]
+  lob:
+    aliases: [lobblock, blocklobber]
     description: Lobs a block
     usage: /lob <ID[:data]> <strength>
     permission: blocklobber.lob
     permissions-message: You dont have the permission to lob blocks!
     
-  lob-preset:
-    aliases: [lob-set, lobpreset, lobset, lob-preset, lobs]
+  lobs:
+    aliases: [lobpreset, lobset]
     description: Defines a preset for lobbing blocks
     usage: |
            /lobs (mat|data|str) <value>
@@ -24,39 +24,46 @@ commands:
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
-  lob-clear:
-    aliases: [lobclear, lobc]
+  lobc:
+    aliases: [lobclear]
     description: Clears a previously defined preset
     usage: /lobc (pos|dir|mat|data|str|all)
     permission: blocklobber.preset
     permissions-message: You dont have the permission to use lobber presets!
     
-  lob-projectile:
-    aliases: [lobprojectile, lob-proj, lobproj, lobp]
+  lobp:
+    aliases: [lobprojectile, lobproj]
     description: Lobs a projectile
     usage: /lobp <type> <strength>
     permission: blocklobber.projectile.lob
     permissions-message: You dont have the permission to lob projectiles!
     
-  lob-projectile-preset:
-    aliases: [lob-setp, lobpresetp, lobsetp, lob-presetp, lobsp]
+  lobps:
+    aliases: [lobpresetp, lobsetp, lobsp]
     description: Defines a preset for lobbing projectile
     usage: |
-           /lobsp (type|str) <value>
-           /lobsp <dir>
-           /lobsp <pos> [X] [Y] [Z] [world]
+           /lobps (type|str) <value>
+           /lobps <dir>
+           /lobps <pos> [X] [Y] [Z] [world]
     permission: blocklobber.projectile.preset
     permissions-message: You dont have the permission to use projectile presets!
     
-  lob-projectile-clear:
+  lobpc:
     aliases: [lobclearp, lobcp]
     description: Clears a previously defined projectile preset
-    usage: /lobcp (pos|type|data|str)
+    usage: /lobpc (pos|type|data|str)
     permission: blocklobber.projectile.preset
     permissions-message: You dont have the permission to use projectile presets!
     
-  lob-reload:
-    aliases: [lobreload, lobr]
+  lobsv:
+    aliases: [lobpresetview, lobsetview, lobsview, lobvs]
+    description: View your presets
+    usage: /lobsv
+    permission: blocklobber.preset.view
+    permissions-message: You dont have the permission to view your presets!
+    
+  lobr:
+    aliases: [lobreload]
     description: reloads config
     usage: /lobr
     permission: blocklobber.reload
@@ -80,6 +87,10 @@ permissions:
     description: Allows players to lob projectiles
     default: op
       
+  blocklobber.preset.view:
+    description: Allows players to view presets
+    default: op
+      
   blocklobber.reload:
     description: Allows players to reload config
     default: op
@@ -94,18 +105,21 @@ permissions:
     children:
       blocklobber.lob: true
       blocklobber.preset: true
+      blocklobber.preset.view: true
       
   blocklobber.projectile:
     description: Grants all projectile lobbing permissions
     children:
       blocklobber.projectile.lob: true
       blocklobber.projectile.preset: true
+      blocklobber.preset.view: true
     
   blocklobber.*:
     description: Grants all permissions
     children:
       blocklobber.lob: true
       blocklobber.preset: true
-      blocklobber.reload: true
       blocklobber.projectile.lob: true
       blocklobber.projectile.preset: true
+      blocklobber.preset.view: true
+      blocklobber.reload: true
