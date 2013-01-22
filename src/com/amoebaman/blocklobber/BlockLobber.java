@@ -249,7 +249,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 			if (values.projloc == null)
 			{
-				values.projloc = player.getEyeLocation()
+				values.projloc = player.getEyeLocation();
 			}
 			if (values.projdir == null)
 			{
