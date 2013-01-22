@@ -431,7 +431,9 @@ public class BlockLobber extends JavaPlugin{
 	    	    }
 		    player.sendMessage(ChatColor.YELLOW + "Damage value: " + ChatColor.GREEN + values.data);
 		    player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + values.strength);
-		    player.sendMessage();
+		    
+		    player.sendMessage("");
+		    
 		    player.sendMessage(ChatColor.YELLOW + "Projectile Presets:");
 		    if(projvalues.projloc == null)
 		    {
