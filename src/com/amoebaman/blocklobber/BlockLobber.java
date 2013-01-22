@@ -27,7 +27,10 @@ public class BlockLobber extends JavaPlugin{
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-		String args0 = args[0].toLowerCase();
+		if (args.length > 0)
+		{
+		    String args0 = args[0].toLowerCase();
+		}
 		Player player = null;
 		if(sender instanceof Player)
 			player = (Player) sender;
@@ -52,6 +55,7 @@ public class BlockLobber extends JavaPlugin{
 				else
 				{
 				    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Block selected!");
+				    return true;
 				}
 				if(split.length > 1)
 				{
