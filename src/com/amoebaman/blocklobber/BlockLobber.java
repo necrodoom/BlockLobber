@@ -249,24 +249,47 @@ public class BlockLobber extends JavaPlugin{
 			}
 			if (values.projloc == null)
 			{
-				values.projloc = player.getLocation().add(0,1,0);
+				values.projloc = player.getEyeLocation()
 			}
 			if (values.projdir == null)
 			{
 				values.projdir = player.getLocation().getDirection();
 			}
 			//Arrow, Egg, EnderPearl, Fireball, Fish(?), LargeFireball, SmallFireball(?), Snowball, ThrownExpBottle(?), ThrownPotion, WitherSkull
-			if (values.projtype.equals("arrow"))
+		        Projectile projectile;
+		        int speed = 2;
+			if (args0.equals("fireball"))
 			{
-			    Arrow arrow = player.getWorld().spawn(values.projloc, Arrow.class);
-			    arrow.setShooter(player);
-			    return true;
+				type = SmallFireball.class;
 			}
-			else
+			else if (args0.equals("arrow"))
 			{
-			    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile selected!");
-			    return false;
+				type = Arrow.class;
 			}
+			else if (args0.equals("skull"))
+			{
+				type = WitherSkull.class;
+			}
+			else if (args0.equals("egg"))
+			{
+				type = Egg.class;
+			}
+			else if(args0.equals("snowball"))
+			{
+				type = Snowball.class;
+			}
+			else if(args0.equals("expbottle"))
+			{
+				type = ThrownExpBottle.class;
+			}
+			else if(args0.equals("largefireball"))
+			{
+				type = LargeFireball.class;
+			}
+			//final Vector direction = values.projdir.multiply(speed);
+			//projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
+			//projectile.setShooter(player);
+			//projectile.setVelocity(direction);
 		}
 		
 		if(command.getName().equals("lobps") && player != null)
