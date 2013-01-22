@@ -454,7 +454,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.getBlockX() + ", " + projvalues.projdir.getBlockY() + ", " projvalues.projdir.getBlockZ());
+		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.getBlockX() + ", " + projvalues.projdir.getBlockY() + ", " + projvalues.projdir.getBlockZ());
 		    }
 	    	    if(projvalues.projtype == null)
 	    	    {
