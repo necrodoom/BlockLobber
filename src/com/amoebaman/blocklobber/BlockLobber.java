@@ -416,7 +416,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + values.loc.getX() + "," + values.loc.getY() + "," + values.loc.getZ() + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld());
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().toString());
 		    }
 		    if(values.dir == null)
 		    {
@@ -424,7 +424,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + values.dir.toString());
+		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + values.dir.getBlockX() + ", " + values.dir.getBlockY() + ", " + values.dir.getBlockZ());
 		    }
 	    	    if(values.mat == null)
 	    	    {
@@ -446,7 +446,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + projvalues.projloc.getX() + "," + projvalues.projloc.getY() + "," + projvalues.projloc.getZ() + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld());
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(projvalues.projloc.getX()) + ", " + (int)(projvalues.projloc.getY()) + ", " + (int)(projvalues.projloc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld().toString());
 		    }
 		    if(projvalues.projdir == null)
 		    {
@@ -454,7 +454,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.toString());
+		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.getBlockX() + ", " + projvalues.projdir.getBlockY() + ", " projvalues.projdir.getBlockZ());
 		    }
 	    	    if(projvalues.projtype == null)
 	    	    {
