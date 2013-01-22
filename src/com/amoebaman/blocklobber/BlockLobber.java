@@ -416,7 +416,7 @@ public class BlockLobber extends JavaPlugin{
 		    }
 		    else
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().toString());
+		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)(values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().toString());
 		    }
 		    if(values.dir == null)
 		    {
