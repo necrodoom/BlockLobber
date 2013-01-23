@@ -288,9 +288,10 @@ public class BlockLobber extends JavaPlugin{
 			else
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile type selected!");
-				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, skill, egg, snowball, expbottle, fireball, largefireball");
+				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, skull, egg, snowball, expbottle, fireball, largefireball");
 			}
 			final Vector direction = values.projdir.multiply(speed);
+			direction = clone();
 			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.normalize()), type);
 			projectile.setShooter(player);
 			projectile.setVelocity(direction);
