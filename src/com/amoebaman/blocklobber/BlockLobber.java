@@ -291,7 +291,7 @@ public class BlockLobber extends JavaPlugin{
 				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, skill, egg, snowball, expbottle, fireball, largefireball");
 			}
 			final Vector direction = values.projdir.multiply(speed);
-			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
+			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.normalize()), type);
 			projectile.setShooter(player);
 			projectile.setVelocity(direction);
 		}
