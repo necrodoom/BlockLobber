@@ -292,7 +292,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 			final Vector direction = values.projdir.multiply(speed);
 			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.clone().add(direction.normalize()), type);
-			player.sendMessage(ChatColor.DARK_RED + "where is that damn projectile:" + ChatColor.RED + values.projloc.clone().add(direction.normalize().getX + ", " + values.projloc.clone().add(direction.normalize().getY + ", " + values.projloc.clone().add(direction.normalize().getZ));
+			player.sendMessage(ChatColor.DARK_RED + "where is that damn projectile:" + ChatColor.RED + values.projloc.clone().add(direction.normalize()).getX + ", " + values.projloc.clone().add(direction.normalize()).getY + ", " + values.projloc.clone().add(direction.normalize()).getZ);
 			projectile.setShooter(player);
 			projectile.setVelocity(direction);
 		}
