@@ -294,6 +294,8 @@ public class BlockLobber extends JavaPlugin{
 			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.normalize()), type);
 			projectile.setShooter(player);
 			projectile.setVelocity(direction);
+			player.sendMessage(ChatColor.YELLOW + "debug entity spawn location: " + ChatColor.GREEN + (int)(projvalues.projloc.getX()) + ", " + (int)(projvalues.projloc.getY()) + ", " + (int)(projvalues.projloc.getZ()));
+			
 		}
 		
 		if(command.getName().equals("lobps") && player != null)
