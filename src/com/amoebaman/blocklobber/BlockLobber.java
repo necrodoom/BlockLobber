@@ -256,7 +256,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 		        Class<? extends Entity> type = Fireball.class;
 		        Projectile projectile;
-		        int speed = (values.projstrength / 5);
+		        double speed = (values.projstrength / 5.0);
 			if (values.projtype.equals("fireball"))
 			{
 				type = SmallFireball.class;
