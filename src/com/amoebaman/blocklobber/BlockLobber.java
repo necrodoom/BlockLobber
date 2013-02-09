@@ -246,6 +246,10 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.projtype = args[0].toLowerCase();
 			}
+			if (args.length > 1)
+			{
+				values.projstrength = Byte.parseByte(args[1]);
+			}
 			if (values.projloc == null)
 			{
 				values.projloc = player.getLocation().add(0, 1, 0);
