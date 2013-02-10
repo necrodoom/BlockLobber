@@ -258,7 +258,7 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.projdir = player.getEyeLocation().getDirection();
 			}
-		        Class<? extends Entity> type = Fireball.class;
+		        Class<? extends Entity> type;
 		        Projectile projectile;
 		        double speed = (values.projstrength / 5.0);
 			if (values.projtype.equals("fireball"))
@@ -293,11 +293,13 @@ public class BlockLobber extends JavaPlugin{
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile type selected!");
 				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, skull, egg, snowball, expbottle, fireball, largefireball");
+				return true;
 			}
 			final Vector direction = values.projdir.multiply(speed);
 			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
 			projectile.setShooter(player);
 			projectile.setVelocity(direction);
+			return true;
 			
 		}
 		
