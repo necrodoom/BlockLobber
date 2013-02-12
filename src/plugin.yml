@@ -88,9 +88,17 @@ permissions:
     default: op
       
   blocklobber.preset.view:
-    description: Allows players to view presets
+    description: Allows players to use /lobvs
     default: op
-      
+    
+  blocklobber.preset.view.block:
+    description: Allows players to view block presets
+    default: op
+  
+  blocklobber.preset.view.projectile:
+    description: Allows players to view projectile presets
+    default: op
+    
   blocklobber.reload:
     description: Allows players to reload config
     default: op
@@ -106,6 +114,7 @@ permissions:
       blocklobber.lob: true
       blocklobber.preset: true
       blocklobber.preset.view: true
+      blocklobber.preset.view.block: true
       
   blocklobber.projectile:
     description: Grants all projectile lobbing permissions
@@ -113,6 +122,7 @@ permissions:
       blocklobber.projectile.lob: true
       blocklobber.projectile.preset: true
       blocklobber.preset.view: true
+      blocklobber.preset.view.projectile: true
     
   blocklobber.*:
     description: Grants all permissions
@@ -122,4 +132,6 @@ permissions:
       blocklobber.projectile.lob: true
       blocklobber.projectile.preset: true
       blocklobber.preset.view: true
+      blocklobber.preset.view.block: true
+      blocklobber.preset.view.projectile: true
       blocklobber.reload: true
