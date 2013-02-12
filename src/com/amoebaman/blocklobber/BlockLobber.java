@@ -48,13 +48,13 @@ public class BlockLobber extends JavaPlugin{
 			if(args.length > 0)
 			{
 				String[] split = args[0].split(":");
-				if (getMat(split[0]).isBlock())
+				if (getMat(split[0]) != null && getMat(split[0]).isBlock())
 				{
 				    values.mat = getMat(split[0]);
 				}
 				else
 				{
-				    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Block selected!");
+				    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
 				    return true;
 				}
 				if(split.length > 1)
@@ -131,13 +131,14 @@ public class BlockLobber extends JavaPlugin{
 				    {
 				        if((args0.equals("mat")) || (args0.equals("material")))
 				        {
-				            if (getMat(args[1]).isBlock())
+				            if (getMat(args[1]) != null && getMat(args[1]).isBlock())
 				            {
 					        values.mat = getMat(args[1]);
 				            }
 				            else
 				            {
-				            	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Block selected!");
+				            	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
+				            	return true;
 				            }
 				        }
 				        else
