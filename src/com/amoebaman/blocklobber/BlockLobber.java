@@ -444,63 +444,71 @@ public class BlockLobber extends JavaPlugin{
 		{
 		    Presets values = new Presets(presets.get(player.getName()));
 		    ProjPresets projvalues = new ProjPresets(projpresets.get(player.getName()));
-		    player.sendMessage(ChatColor.YELLOW + "Block Presets:");
-		    if(values.loc == null)
+		    if(player.hasPermission("blocklobber.preset.view.block"))
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.RED + "Unset");
+		    		player.sendMessage(ChatColor.YELLOW + "Block Presets:");
+		    	if(values.loc == null)
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.RED + "Unset");
+		    	}
+		    	else
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)(values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().getName());
+		    	}
+		   	if(values.dir == null)
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.RED + "Unset");
+		    	}
+		    	else
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + values.dir.getBlockX() + ", " + values.dir.getBlockY() + ", " + values.dir.getBlockZ());
+		    	}
+	    	    	if(values.mat == null)
+	    	    	{
+	    	    		player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.RED + "Unset");
+	    	    	}
+	    	   	else
+	    	   	{
+	    	   	 	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.GREEN + values.mat.toString().toLowerCase());
+	    	   	}
+		    	player.sendMessage(ChatColor.YELLOW + "Damage value: " + ChatColor.GREEN + values.data);
+		    	player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + values.strength);
 		    }
-		    else
-		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)(values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().getName());
-		    }
-		    if(values.dir == null)
-		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.RED + "Unset");
-		    }
-		    else
-		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + values.dir.getBlockX() + ", " + values.dir.getBlockY() + ", " + values.dir.getBlockZ());
-		    }
-	    	    if(values.mat == null)
-	    	    {
-	    	    	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.RED + "Unset");
-	    	    }
-	    	    else
-	    	    {
-	    	    	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.GREEN + values.mat.toString().toLowerCase());
-	    	    }
-		    player.sendMessage(ChatColor.YELLOW + "Damage value: " + ChatColor.GREEN + values.data);
-		    player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + values.strength);
 		    
-		    player.sendMessage("");
+		    if(player.hasPermission("blocklobber.preset.view.block") && player.hasPermission("blocklobber.preset.view.projectile"))
+		    {
+		    	player.sendMessage("");
+		    }
 		    
-		    player.sendMessage(ChatColor.YELLOW + "Projectile Presets:");
-		    if(projvalues.projloc == null)
+		    if(player.hasPermission("blocklobber.preset.view.projectile"))
 		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.RED + "Unset");
+		    	player.sendMessage(ChatColor.YELLOW + "Projectile Presets:");
+		    	if(projvalues.projloc == null)
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.RED + "Unset");
+		    	}
+		    	else
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(projvalues.projloc.getX()) + ", " + (int)(projvalues.projloc.getY()) + ", " + (int)(projvalues.projloc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld().getName());
+		    	}
+		    	if(projvalues.projdir == null)
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.RED + "Unset");
+		    	}
+		    	else
+		    	{
+		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.getBlockX() + ", " + projvalues.projdir.getBlockY() + ", " + projvalues.projdir.getBlockZ());
+		    	}
+	    	    	if(projvalues.projtype == null)
+	    	   	{
+	    	   	 	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.RED + "Unset");
+	    	    	}
+	    	    	else
+	    	    	{
+	    	    		player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.GREEN + projvalues.projtype.toLowerCase());
+	    	    	}
+		    	player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + projvalues.projstrength);
 		    }
-		    else
-		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(projvalues.projloc.getX()) + ", " + (int)(projvalues.projloc.getY()) + ", " + (int)(projvalues.projloc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + projvalues.projloc.getWorld().getName());
-		    }
-		    if(projvalues.projdir == null)
-		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.RED + "Unset");
-		    }
-		    else
-		    {
-		    	player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.getBlockX() + ", " + projvalues.projdir.getBlockY() + ", " + projvalues.projdir.getBlockZ());
-		    }
-	    	    if(projvalues.projtype == null)
-	    	    {
-	    	    	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.RED + "Unset");
-	    	    }
-	    	    else
-	    	    {
-	    	    	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.GREEN + projvalues.projtype.toLowerCase());
-	    	    }
-		    player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + projvalues.projstrength);
-		    
 		}
 		
 		
