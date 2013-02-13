@@ -66,6 +66,11 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.strength = Byte.parseByte(args[1]);
 			}
+			if (values.mat == null)
+			{
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
+				return true;
+			}
 				
 			FallingBlock block = player.getWorld().spawnFallingBlock((values.loc == null ? player.getLocation() : values.loc), values.mat, values.data);
 			block.setVelocity((values.dir == null ? player.getLocation().getDirection() : values.dir).clone().multiply(values.strength).multiply(0.2));
@@ -526,15 +531,14 @@ public class BlockLobber extends JavaPlugin{
 	{
 		name = name.toLowerCase();
 		Material mat = null;
-		if(mat == null)
-		{
-			try
-			{ 
-				mat = Material.getMaterial(Integer.parseInt(name));
-			}
-			catch(NumberFormatException e)
-			{	
-			}
+		try
+		{ 
+			mat = Material.getMaterial(Integer.parseInt(name));
+		}
+		catch(NumberFormatException e)
+		{	
+		}
+		
 		}
 		if(mat == null)
 		{
@@ -544,7 +548,6 @@ public class BlockLobber extends JavaPlugin{
 		{
 			mat = Material.MONSTER_EGG;
 		}
-		
 		return mat;
 	}
 
