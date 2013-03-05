@@ -25,7 +25,8 @@ public class BlockLobber extends JavaPlugin{
 		getServer().getPluginManager().registerEvents(new FBlockListener(this), this);
 	}
 
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+	{
 		String args0 = "";
 		if (args.length > 0)
 		{
@@ -502,8 +503,6 @@ public class BlockLobber extends JavaPlugin{
 		}
 		catch(NumberFormatException e)
 		{	
-		}
-		
 		}
 		if(mat == null)
 		{
