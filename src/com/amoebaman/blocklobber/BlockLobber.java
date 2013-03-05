@@ -83,92 +83,57 @@ public class BlockLobber extends JavaPlugin{
 			Presets values = new Presets(presets.get(player.getName()));
 			if (args.length == 0)
 			{
-			   return false;	
+			   	return false;	
 			}
-                        if (args.length == 5)
+                        if (args.length == 5 && args0.equals("pos") || args0.equals("position"))
                         {
-                            if((args0.equals("pos")) || (args0.equals("position")))
-                            {
-                                 double x = Double.parseDouble(args[1]);
-                                 double y = Double.parseDouble(args[2]);
-                                 double z = Double.parseDouble(args[3]);
-                                 Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
-                                 values.loc = location;
-                                       
-                            }
-                            else
-                            {
-                                 player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			         return false;	
-                            }
+                            	double x = Double.parseDouble(args[1]);
+                            	double y = Double.parseDouble(args[2]);
+                             	double z = Double.parseDouble(args[3]);
+                             	Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
+                             	values.loc = location;
                         }
-                        else
+                        else if (args.length == 4 && args0.equals("pos") || args0.equals("position"))
                         {
-                             if (args.length == 4)
-                             {
-                                 if((args0.equals("pos")) || (args0.equals("position")))
-                                 {
-                                     double x = Double.parseDouble(args[1]);
-                                     double y = Double.parseDouble(args[2]);
-                                     double z = Double.parseDouble(args[3]);
-                                     Location location = new Location(player.getWorld(), x, y, z);
-                                     values.loc = location;	
-                                 }
-                                 else
-                                 {
-                                     player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			             return false;
-                                 }
-                             }
-                             else
-                             {
-				if((args0.equals("pos")) || (args0.equals("position")))
+                            	double x = Double.parseDouble(args[1]);
+                            	double y = Double.parseDouble(args[2]);
+                            	double z = Double.parseDouble(args[3]);
+                           	 Location location = new Location(player.getWorld(), x, y, z);
+                            	values.loc = location;
+                        }
+                        else if (args0.equals("pos") || args0.equals("position"))
+			{
+				values.loc = player.getLocation();
+			}
+			else if(args0.equals("dir") || args0.equals("direction"))
+			{
+				values.dir = player.getLocation().getDirection();
+			}
+			else if(args0.equals("mat") || args0.equals("material"))
+			{
+				if (getMat(args[1]) != null && getMat(args[1]).isBlock())
 				{
-					values.loc = player.getLocation();
+					values.mat = getMat(args[1]);
 				}
 				else
 				{
-				    if((args0.equals("dir")) || (args0.equals("direction")))
-				    {
-					    values.dir = player.getLocation().getDirection();
-				    }
-				    else
-				    {
-				        if((args0.equals("mat")) || (args0.equals("material")))
-				        {
-				            if (getMat(args[1]) != null && getMat(args[1]).isBlock())
-				            {
-					        values.mat = getMat(args[1]);
-				            }
-				            else
-				            {
-				            	player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
-				            	return true;
-				            }
-				        }
-				        else
-				        {
-				            if(args0.equals("data"))
-					    {
-						    values.data = Byte.parseByte(args[1]);
-					    }
-					    else
-					    {
-						if((args0.equals("str")) || (args0.equals("strength")))
-			        		{
-							values.strength = Byte.parseByte(args[1]);
-			        		}
-			        		else
-			        		{
-			        			player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			        			return false;
-			        		}
-					    }
-				        }
-				    }
+				        player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
+				        return true;
 				}
-                            }
-                        }
+			}
+			else if(args0.equals("data"))
+			{
+				values.data = Byte.parseByte(args[1]);
+			}
+			else if(args0.equals("str") || args0.equals("strength"))
+			{
+				values.strength = Byte.parseByte(args[1]);
+			}
+			else
+			{
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			        return false;
+			}
 			        
 		    presets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
