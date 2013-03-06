@@ -46,18 +46,16 @@ public class BlockLobber extends JavaPlugin{
 				return false;
 				}
 			}
+			
 			if(args.length > 0)
 			{
 				String[] split = args[0].split(":");
-				if (getMat(split[0]) != null && getMat(split[0]).isBlock())
+				values.mat = getMat(split[0]);
+				if (values.mat == null || !values.mat.isBlock())
 				{
-				    values.mat = getMat(split[0]);
+					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
 				}
-				else
-				{
-				    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
-				    return true;
-				}
+				
 				if(split.length > 1)
 				{
 					values.data = Byte.parseByte(split[1]);
@@ -67,16 +65,25 @@ public class BlockLobber extends JavaPlugin{
 			{
 				values.strength = Byte.parseByte(args[1]);
 			}
+			
 			if (values.mat == null)
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
 				return true;
 			}
-				
-			FallingBlock block = player.getWorld().spawnFallingBlock((values.loc == null ? player.getLocation() : values.loc), values.mat, values.data);
-			block.setVelocity((values.dir == null ? player.getLocation().getDirection() : values.dir).clone().multiply(values.strength).multiply(0.2));
-			block.setDropItem(player.getGameMode() == GameMode.CREATIVE);
-			return true;
+			
+			try
+			{
+				FallingBlock block = player.getWorld().spawnFallingBlock((values.loc == null ? player.getLocation() : values.loc), values.mat, values.data);
+				block.setVelocity((values.dir == null ? player.getLocation().getDirection() : values.dir).clone().multiply(values.strength).multiply(0.2));
+				block.setDropItem(player.getGameMode() == GameMode.CREATIVE);
+				return true;
+			}
+			catch(Exception e)
+			{
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Falling Block spawn failed, recheck your input");
+				return false;
+			}
 		}
 
 		if(command.getName().equals("lobs") && player != null)
@@ -86,6 +93,7 @@ public class BlockLobber extends JavaPlugin{
 			{
 			   	return false;	
 			}
+			
                         if (args.length == 5 && args0.equals("pos") || args0.equals("position"))
                         {
                             	double x = Double.parseDouble(args[1]);
@@ -94,6 +102,7 @@ public class BlockLobber extends JavaPlugin{
                              	Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
                              	values.loc = location;
                         }
+                        
                         else if (args.length == 4 && args0.equals("pos") || args0.equals("position"))
                         {
                             	double x = Double.parseDouble(args[1]);
@@ -102,14 +111,17 @@ public class BlockLobber extends JavaPlugin{
                            	 Location location = new Location(player.getWorld(), x, y, z);
                             	values.loc = location;
                         }
+                        
                         else if (args0.equals("pos") || args0.equals("position"))
 			{
 				values.loc = player.getLocation();
 			}
+			
 			else if(args0.equals("dir") || args0.equals("direction"))
 			{
 				values.dir = player.getLocation().getDirection();
 			}
+			
 			else if(args0.equals("mat") || args0.equals("material"))
 			{
 				if (getMat(args[1]) != null && getMat(args[1]).isBlock())
@@ -122,14 +134,17 @@ public class BlockLobber extends JavaPlugin{
 				        return true;
 				}
 			}
+			
 			else if(args0.equals("data"))
 			{
 				values.data = Byte.parseByte(args[1]);
 			}
+			
 			else if(args0.equals("str") || args0.equals("strength"))
 			{
 				values.strength = Byte.parseByte(args[1]);
 			}
+			
 			else
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
@@ -149,54 +164,47 @@ public class BlockLobber extends JavaPlugin{
 			{
 			   return false;	
 			}
-			if((args0.equals("pos")) || (args0.equals("position")))
+			
+			if(args0.equals("pos") || args0.equals("position"))
 			{
 				values.loc = null;
 			}
+			
+			else if(args0.equals("dir") || args0.equals("direction"))
+		        {
+				values.dir = null;
+			}
+			
+			else if(args0.equals("mat") || args0.equals("material"))
+			{
+				values.mat = null;
+			}
+			
+			else if(args0.equals("data"))
+			{
+				values.data = 0;
+			}
+			
+			else if(args0.equals("str") || args0.equals("strength"))
+			{
+				values.strength = 0;
+			}
+			
+			else if (args0.equals("all") || args0.equals("everything"))
+			{
+				values.loc = null;
+				values.dir = null;
+				values.mat = null;
+				values.data = 0;
+				values.strength = 0;
+			}
+			
 			else
 			{
-		            if((args0.equals("dir")) || (args0.equals("direction")))
-		            {
-				    values.dir = null;
-			    }
-			    else
-			    {
-				if((args0.equals("mat")) || (args0.equals("material")))
-				{
-					values.mat = null;
-				}
-				else
-				{
-				    if(args0.equals("data"))
-				    {
-					    values.data = 0;
-				    }
-				    else
-				    {
-					if((args0.equals("str")) || (args0.equals("strength")))
-					{
-						values.strength = 0;
-					}
-					else
-					{
-					    if ((args0.equals("all")) || (args0.equals("everything")))
-					    {
-						values.loc = null;
-						values.dir = null;
-						values.mat = null;
-						values.data = 0;
-						values.strength = 0;
-					    }
-					    else
-					    {
-						player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			       			return false;
-					    }
-					}
-				    }
-				}
-			    }
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			       	return false;
 			}
+			
 		    presets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Block lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " cleared!");
 		    return true;
@@ -211,67 +219,89 @@ public class BlockLobber extends JavaPlugin{
 			{
 				if (values.projtype == null)
 				{
-				return false;
+					return false;
 				}
 			}
+			
 			if(args.length > 0)
 			{
 				values.projtype = args[0].toLowerCase();
 			}
+			
 			if (args.length > 1)
 			{
 				values.projstrength = Byte.parseByte(args[1]);
 			}
+			
 			if (values.projloc == null)
 			{
 				values.projloc = player.getLocation().add(0, 1, 0);
 			}
+			
 			if (values.projdir == null)
 			{
 				values.projdir = player.getEyeLocation().getDirection();
 			}
+			
 		        Class<? extends Entity> type;
 		        Projectile projectile;
 		        double speed = (values.projstrength / 5.0);
+		        
 			if (values.projtype.equals("fireball"))
 			{
 				type = SmallFireball.class;
 			}
+			
 			else if(values.projtype.equals("largefireball"))
 			{
 				type = LargeFireball.class;
 			}
+			
 			else if (values.projtype.equals("arrow"))
 			{
 				type = Arrow.class;
 			}
+			
 			else if (values.projtype.equals("skull"))
 			{
 				type = WitherSkull.class;
 			}
+			
 			else if (values.projtype.equals("egg"))
 			{
 				type = Egg.class;
 			}
+			
 			else if(values.projtype.equals("snowball"))
 			{
 				type = Snowball.class;
 			}
+			
 			else if(values.projtype.equals("expbottle"))
 			{
 				type = ThrownExpBottle.class;
 			}
+			
 			else
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile type selected!");
 				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, skull, egg, snowball, expbottle, fireball, largefireball");
 				return true;
 			}
-			final Vector direction = values.projdir.multiply(speed);
-			projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
-			projectile.setShooter(player);
-			projectile.setVelocity(direction);
-			return true;
+			
+			try
+			{
+				final Vector direction = values.projdir.multiply(speed);
+				projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
+				projectile.setShooter(player);
+				projectile.setVelocity(direction);
+				return true;
+			}
+			catch(Exception e)
+			{
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Projectile spawn failed, recheck your input");
+				return false;
+			}
 			
 		}
 		
@@ -280,77 +310,52 @@ public class BlockLobber extends JavaPlugin{
 			ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
 			if (args.length == 0)
 			{
-			   return false;	
+			   	return false;	
 			}
-                        if (args.length == 5)
+			
+                        if (args.length == 5 && args0.equals("pos") || args0.equals("position"))
                         {
-                            if((args0.equals("pos")) || (args0.equals("position")))
-                            {
                                  double x = Double.parseDouble(args[1]);
                                  double y = Double.parseDouble(args[2]);
                                  double z = Double.parseDouble(args[3]);
                                  Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
                                  values.projloc = location;
-                                       
-                            }
-                            else
-                            {
-                                 player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			         return false;	
-                            }
                         }
-                        else
+                        
+                        else if (args.length == 4 && args0.equals("pos") || args0.equals("position"))
                         {
-                             if (args.length == 4)
-                             {
-                                 if((args0.equals("pos")) || (args0.equals("position")))
-                                 {
-                                     double x = Double.parseDouble(args[1]);
-                                     double y = Double.parseDouble(args[2]);
-                                     double z = Double.parseDouble(args[3]);
-                                     Location location = new Location(player.getWorld(), x, y, z);
-                                     values.projloc = location;	
-                                 }
-                                 else
-                                 {
-                                     player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			             return false;
-                                 }
-                             }
-                             else
-                             {
-				if((args0.equals("pos")) || (args0.equals("position")))
-				{
-					values.projloc = player.getLocation();
-				}
-				else
-				{
-				    if((args0.equals("dir")) || (args0.equals("direction")))
-				    {
-					    values.projdir = player.getLocation().getDirection();
-				    }
-				    else
-				    {
-				        if(args0.equals("type"))
-				        {
-					        values.projtype = args[1].toLowerCase();
-				        }
-				        else
-				        {
-					    if((args0.equals("str")) || (args0.equals("strength")))
-			        	    {
-						values.projstrength = Byte.parseByte(args[1]);
-			        	    }
-			        	    else
-			        	    {
-			        		player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			        		return false;
-			        	    }
-				        }
-				    }
-				}
-                            }
+                                 double x = Double.parseDouble(args[1]);
+                                 double y = Double.parseDouble(args[2]);
+                                 double z = Double.parseDouble(args[3]);
+                                 Location location = new Location(player.getWorld(), x, y, z);
+                                values.projloc = location;	
                         }
+                        
+                        else if(args0.equals("pos") || args0.equals("position"))
+			{
+				values.projloc = player.getLocation();
+			}
+			
+			else if(args0.equals("dir") || args0.equals("direction"))
+			{
+				values.projdir = player.getLocation().getDirection();
+			}
+			
+			else if(args0.equals("type"))
+			{
+				values.projtype = args[1].toLowerCase();
+			}
+			
+			else if(args0.equals("str") || args0.equals("strength"))
+			{
+				values.projstrength = Byte.parseByte(args[1]);
+			}
+			
+			else
+			{
+			        player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			        return false;
+			}
 			        
 		    projpresets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Projectile lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " updated!");
@@ -364,46 +369,40 @@ public class BlockLobber extends JavaPlugin{
 			{
 			   return false;	
 			}
-			if((args0.equals("pos")) || (args0.equals("position")))
+			
+			if(args0.equals("pos") || args0.equals("position"))
 			{
 				values.projloc = null;
 			}
+			
+			else if(args0.equals("dir") || args0.equals("direction"))
+		        {
+				values.projdir = null;
+			}
+			
+			else if(args0.equals("type"))
+			{
+				values.projtype = null;
+			}
+			
+			else if(args0.equals("str") || args0.equals("strength"))
+			{
+				values.projstrength = 0;
+			}
+			
+			else if (args0.equals("all") || args0.equals("everything"))
+			{
+				values.projloc = null;
+				values.projdir = null;
+				values.projtype = null;
+				values.projstrength = 0;
+			}
 			else
 			{
-		            if((args0.equals("dir")) || (args0.equals("direction")))
-		            {
-				    values.projdir = null;
-			    }
-			    else
-			    {
-				if(args0.equals("type"))
-				{
-					values.projtype = null;
-				}
-				else
-				{
-				    if((args0.equals("str")) || (args0.equals("strength")))
-				    {
-					values.projstrength = 0;
-				    }
-				    else
-				    {
-					if ((args0.equals("all")) || (args0.equals("everything")))
-					{
-					    values.projloc = null;
-					    values.projdir = null;
-					    values.projtype = null;
-					    values.projstrength = 0;
-				        }
-					else
-					{
-					    player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			       		    return false;
-					}
-				    }
-				}
-			    }
+				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
+			       	return false;
 			}
+
 		    projpresets.put(player.getName(), values);
 		    player.sendMessage(ChatColor.YELLOW + "Projectile lobbing preset " + ChatColor.GREEN + args[0].toLowerCase() + ChatColor.YELLOW + " cleared!");
 		    return true;
