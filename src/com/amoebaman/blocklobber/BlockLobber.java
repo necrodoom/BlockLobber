@@ -323,7 +323,7 @@ public class BlockLobber extends JavaPlugin{
 				type = Snowball.class;
 			}
 			
-			else if(values.projtype.equals("expbottle") || values.projtype.equals("xpbottle")
+			else if(values.projtype.equals("expbottle") || values.projtype.equals("xpbottle"))
 			{
 				type = ThrownExpBottle.class;
 			}
