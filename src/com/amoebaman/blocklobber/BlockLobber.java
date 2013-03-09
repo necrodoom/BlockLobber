@@ -54,6 +54,7 @@ public class BlockLobber extends JavaPlugin{
 				if (values.mat == null || !values.mat.isBlock())
 				{
 					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
+					return true;
 				}
 				
 				if(split.length > 1)
