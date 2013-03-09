@@ -43,7 +43,7 @@ public class BlockLobber extends JavaPlugin{
 			{
 				if (values.mat == null || values.strength == 0)
 				{
-				return false;
+					return false;
 				}
 			}
 			
@@ -96,7 +96,7 @@ public class BlockLobber extends JavaPlugin{
 			
 			if(values.dir == null)
 			{
-				values.dir = player.getLocation();
+				values.dir = player.getLocation().getDirection();
 			}
 			
 			double speed = values.strength / 5.0;
@@ -154,7 +154,7 @@ public class BlockLobber extends JavaPlugin{
 			
 			else if(args0.equals("mat") || args0.equals("material"))
 			{
-				values.mat = getMat(split[0]);
+				values.mat = args[1]);
 				if (values.mat == null || !values.mat.isBlock())
 				{
 					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
