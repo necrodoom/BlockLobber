@@ -154,7 +154,7 @@ public class BlockLobber extends JavaPlugin{
 			
 			else if(args0.equals("mat") || args0.equals("material"))
 			{
-				values.mat = args[1];
+				values.mat = getMat(args[1]);
 				if (values.mat == null || !values.mat.isBlock())
 				{
 					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
