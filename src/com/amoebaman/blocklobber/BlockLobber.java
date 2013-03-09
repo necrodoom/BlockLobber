@@ -32,9 +32,12 @@ public class BlockLobber extends JavaPlugin{
 		{
 		    args0 = args[0].toLowerCase();
 		}
+		
 		Player player = null;
 		if(sender instanceof Player)
+		{
 			player = (Player) sender;
+		}
 		
 		if(command.getName().equals("lob") && player != null)
 		{
@@ -557,10 +560,12 @@ public class BlockLobber extends JavaPlugin{
 		catch(NumberFormatException e)
 		{	
 		}
+		
 		if(mat == null)
 		{
 			mat = Material.matchMaterial(name);
 		}
+		
 		if((name.contains("spawn") || name.contains("mob")) && name.contains("egg"))
 		{
 			mat = Material.MONSTER_EGG;
