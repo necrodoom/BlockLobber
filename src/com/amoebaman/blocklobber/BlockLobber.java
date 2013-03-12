@@ -107,7 +107,7 @@ public class BlockLobber extends JavaPlugin{
 			try
 			{
 				final Vector direction = values.dir.multiply(speed);
-				FallingBlock block = player.getWorld().spawnFallingBlock(values.loc, values.mat, values.data);
+				FallingBlock block = values.loc.getWorld().spawnFallingBlock(values.loc, values.mat, values.data);
 				block.setVelocity(direction);
 				block.setDropItem(player.getGameMode() == GameMode.CREATIVE);
 				return true;
