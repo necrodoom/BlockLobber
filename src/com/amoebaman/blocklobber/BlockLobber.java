@@ -126,28 +126,10 @@ public class BlockLobber extends JavaPlugin{
 			{
 			   	return false;	
 			}
-			
-                        if (args.length == 5 && args0.equals("pos") || args0.equals("position"))
-                        {
-                            	double x = Double.parseDouble(args[1]);
-                            	double y = Double.parseDouble(args[2]);
-                             	double z = Double.parseDouble(args[3]);
-                             	Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
-                             	values.loc = location;
-                        }
-                        
-                        else if (args.length == 4 && args0.equals("pos") || args0.equals("position"))
-                        {
-                            	double x = Double.parseDouble(args[1]);
-                            	double y = Double.parseDouble(args[2]);
-                            	double z = Double.parseDouble(args[3]);
-                           	Location location = new Location(player.getWorld(), x, y, z);
-                            	values.loc = location;
-                        }
-                        
+
                         else if (args0.equals("pos") || args0.equals("position"))
 			{
-				values.loc = player.getLocation();
+				values.loc = getLocation(player, args);
 			}
 			
 			else if(args0.equals("dir") || args0.equals("direction"))
@@ -363,27 +345,9 @@ public class BlockLobber extends JavaPlugin{
 			   	return false;	
 			}
 			
-                        if (args.length == 5 && args0.equals("pos") || args0.equals("position"))
-                        {
-                                 double x = Double.parseDouble(args[1]);
-                                 double y = Double.parseDouble(args[2]);
-                                 double z = Double.parseDouble(args[3]);
-                                 Location location = new Location(Bukkit.getWorld(args[4]), x, y, z);
-                                 values.projloc = location;
-                        }
-                        
-                        else if (args.length == 4 && args0.equals("pos") || args0.equals("position"))
-                        {
-                                 double x = Double.parseDouble(args[1]);
-                                 double y = Double.parseDouble(args[2]);
-                                 double z = Double.parseDouble(args[3]);
-                                 Location location = new Location(player.getWorld(), x, y, z);
-                                 values.projloc = location;	
-                        }
-                        
-                        else if(args0.equals("pos") || args0.equals("position"))
+                         else if (args0.equals("pos") || args0.equals("position"))
 			{
-				values.projloc = player.getLocation();
+				values.projloc = getLocation(player, args);
 			}
 			
 			else if(args0.equals("dir") || args0.equals("direction"))
@@ -571,6 +535,34 @@ public class BlockLobber extends JavaPlugin{
 			mat = Material.MONSTER_EGG;
 		}
 		return mat;
+	}
+	
+	public static getLocation(Player player, String[] args)
+	{
+		Location location;
+		if (args.length >= 4)
+		{
+			double x = Double.parseDouble(args[1]);
+                	double y = Double.parseDouble(args[2]);
+                	double z = Double.parseDouble(args[3]);
+                
+                	World world;
+                	if (args.length >= 5)
+                	{
+                		world = Bukkit.getWorld(args[4]);	
+               		}
+                	else
+                	{
+                		world = player.getWorld();
+                	}
+                
+			location = new Location(world, x, y, z);
+		}
+		else
+		{
+			location = player.getLocation();
+		}
+                return location;
 	}
 
 }
