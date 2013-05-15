@@ -537,7 +537,7 @@ public class BlockLobber extends JavaPlugin{
 		return mat;
 	}
 	
-	public static getLocation(Player player, String[] args)
+	public static Location getLocation(Player player, String[] args)
 	{
 		Location location;
 		if (args.length >= 4)
