@@ -343,6 +343,7 @@ public class BlockLobber extends JavaPlugin{
 			catch(Exception e)
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Projectile spawn failed, recheck your input");
+				e.printStackTrace();
 				return false;
 			}
 			
