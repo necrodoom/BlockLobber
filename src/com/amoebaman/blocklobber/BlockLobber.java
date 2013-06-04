@@ -315,10 +315,15 @@ public class BlockLobber extends JavaPlugin{
 				type = ThrownExpBottle.class;
 			}
 			
+			else if(values.projtype.equals("tnt") || values.projtype.equals("primedtnt"))
+			{
+				type = TNTPrimed.class;
+			}
+			
 			else
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid projectile type selected!");
-				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, skull, egg, snowball, expbottle, fireball, largefireball");
+				player.sendMessage(ChatColor.YELLOW + "Allowed projectiles:" + ChatColor.GOLD + " arrow, tnt, skull, egg, snowball, expbottle, fireball, largefireball");
 				return true;
 			}
 			
