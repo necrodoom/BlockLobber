@@ -278,6 +278,7 @@ public class BlockLobber extends JavaPlugin{
 			
 		        Class<? extends Entity> type;
 		        Projectile projectile;
+		        boolean ownable = true;
 		        double speed = (values.projstrength / 5.0);
 		        
 			if (values.projtype.equals("fireball") || values.projtype.equals("smallfireball"))
@@ -318,6 +319,7 @@ public class BlockLobber extends JavaPlugin{
 			else if(values.projtype.equals("tnt") || values.projtype.equals("primedtnt"))
 			{
 				type = TNTPrimed.class;
+				ownable = false;
 			}
 			
 			else
@@ -331,7 +333,10 @@ public class BlockLobber extends JavaPlugin{
 			{
 				final Vector direction = values.projdir.multiply(speed);
 				projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
-				projectile.setShooter(player);
+				if (ownable)
+				{
+					projectile.setShooter(player);
+				}
 				projectile.setVelocity(direction);
 				return true;
 			}
