@@ -11,7 +11,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.*;
-import org.bukkit.Entity;
+import org.bukkit.entity;
 import org.bukkit.util.Vector;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -280,7 +280,7 @@ public class BlockLobber extends JavaPlugin{
 		        Class<? extends Entity> type;
 		        Projectile projectile;
 		        Entity entity;
-		        boolean projectile = true;
+		        boolean isProjectile = true;
 		        double speed = (values.projstrength / 5.0);
 		        
 			if (values.projtype.equals("fireball") || values.projtype.equals("smallfireball"))
@@ -321,7 +321,7 @@ public class BlockLobber extends JavaPlugin{
 			else if(values.projtype.equals("tnt") || values.projtype.equals("primedtnt"))
 			{
 				type = TNTPrimed.class;
-				projectile = false;
+				isProjectile = false;
 			}
 			
 			else
@@ -335,7 +335,7 @@ public class BlockLobber extends JavaPlugin{
 			{
 				final Vector direction = values.projdir.multiply(speed);
 				
-				if (projectile)
+				if (isProjectile)
 				{
 					projectile = (Projectile)values.projloc.getWorld().spawn(values.projloc.add(direction.getX(), direction.getY(), direction.getZ()), type);
 					projectile.setShooter(player);
