@@ -19,7 +19,8 @@ public class BlockLobber extends JavaPlugin{
 	private HashMap<String, Presets> presets;
 	private HashMap<String, ProjPresets> projpresets;
 	
-	public void onEnable(){
+	public void onEnable()
+	{
 		presets = new HashMap<String, Presets>();
 		projpresets = new HashMap<String, ProjPresets>();
 		this.saveDefaultConfig();
@@ -122,7 +123,7 @@ public class BlockLobber extends JavaPlugin{
 			   	return false;	
 			}
 
-            else if (args0.equals("pos") || args0.equals("position"))
+			else if (args0.equals("pos") || args0.equals("position"))
 			{
 				values.loc = getLocation(player, args);
 			}
