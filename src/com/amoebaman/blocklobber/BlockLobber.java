@@ -197,7 +197,7 @@ public class BlockLobber extends JavaPlugin{
 			}
 			
 			else if(args0.equals("dir") || args0.equals("direction"))
-		        {
+		    {
 				values.dir = null;
 			}
 			
@@ -276,11 +276,11 @@ public class BlockLobber extends JavaPlugin{
 				values.projdir = player.getEyeLocation().getDirection();
 			}
 			
-		        Class<? extends Entity> type;
-		        Projectile projectile;
-		        Entity entity;
-		        boolean isProjectile = true;
-		        double speed = (values.projstrength / 5.0);
+		    Class<? extends Entity> type;
+		    Projectile projectile;
+		    Entity entity;
+		    boolean isProjectile = true;
+		    double speed = (values.projstrength / 5.0);
 		        
 			if (values.projtype.equals("fireball") || values.projtype.equals("smallfireball"))
 			{
@@ -464,7 +464,7 @@ public class BlockLobber extends JavaPlugin{
 		    	{
 		    		player.sendMessage(ChatColor.YELLOW + "Location: " + ChatColor.GREEN + (int)(values.loc.getX()) + ", " + (int)(values.loc.getY()) + ", " + (int)(values.loc.getZ()) + ChatColor.YELLOW + " At world: " + ChatColor.GREEN + values.loc.getWorld().getName());
 		    	}
-		   	if(values.dir == null)
+		   		if(values.dir == null)
 		    	{
 		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.RED + "Unset");
 		    	}
@@ -472,10 +472,10 @@ public class BlockLobber extends JavaPlugin{
 		    	{
 		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + values.dir.getBlockX() + ", " + values.dir.getBlockY() + ", " + values.dir.getBlockZ());
 		    	}
-	    	    	if(values.mat == null)
-	    	    	{
-	    	    		player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.RED + "Unset");
-	    	    	}
+	    	    if(values.mat == null)
+	    	    {
+	    	    	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.RED + "Unset");
+	    	    }
 	    	   	else
 	    	   	{
 	    	   	 	player.sendMessage(ChatColor.YELLOW + "Material: " + ChatColor.GREEN + values.mat.toString().toLowerCase());
@@ -508,14 +508,14 @@ public class BlockLobber extends JavaPlugin{
 		    	{
 		    		player.sendMessage(ChatColor.YELLOW + "Direction: " + ChatColor.GREEN + projvalues.projdir.getBlockX() + ", " + projvalues.projdir.getBlockY() + ", " + projvalues.projdir.getBlockZ());
 		    	}
-	    	    	if(projvalues.projtype == null)
+	    	    if(projvalues.projtype == null)
 	    	   	{
 	    	   	 	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.RED + "Unset");
-	    	    	}
-	    	    	else
-	    	    	{
-	    	    		player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.GREEN + projvalues.projtype.toLowerCase());
-	    	    	}
+	    	    }
+	    	    else
+	    	    {
+	    	    	player.sendMessage(ChatColor.YELLOW + "Type: " + ChatColor.GREEN + projvalues.projtype.toLowerCase());
+	    	    }
 		    	player.sendMessage(ChatColor.YELLOW + "Strength: " + ChatColor.GREEN + projvalues.projstrength);
 		    }
 		}
@@ -540,7 +540,7 @@ public class BlockLobber extends JavaPlugin{
 			mat = Material.getMaterial(Integer.parseInt(name));
 		}
 		catch(NumberFormatException e)
-		{	
+		{
 		}
 		
 		if(mat == null)
@@ -548,10 +548,6 @@ public class BlockLobber extends JavaPlugin{
 			mat = Material.matchMaterial(name);
 		}
 		
-		if((name.contains("spawn") || name.contains("mob")) && name.contains("egg"))
-		{
-			mat = Material.MONSTER_EGG;
-		}
 		return mat;
 	}
 	
@@ -561,18 +557,18 @@ public class BlockLobber extends JavaPlugin{
 		if (args.length >= 4)
 		{
 			double x = Double.parseDouble(args[1]);
-                	double y = Double.parseDouble(args[2]);
-                	double z = Double.parseDouble(args[3]);
+            double y = Double.parseDouble(args[2]);
+            double z = Double.parseDouble(args[3]);
                 
-                	World world;
-                	if (args.length >= 5)
-                	{
-                		world = Bukkit.getWorld(args[4]);	
-               		}
-                	else
-                	{
-                		world = player.getWorld();
-                	}
+            World world;
+            if (args.length >= 5)
+            {
+            	world = Bukkit.getWorld(args[4]);	
+            }
+            else
+            {
+            world = player.getWorld();
+            }
                 
 			location = new Location(world, x, y, z);
 		}
@@ -580,7 +576,7 @@ public class BlockLobber extends JavaPlugin{
 		{
 			location = player.getLocation();
 		}
-                return location;
+        return location;
 	}
 
 }
