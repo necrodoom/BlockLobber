@@ -45,13 +45,13 @@ public class BlockLobber extends JavaPlugin{
 			Presets values = new Presets(presets.get(player.getName()));
 			if(args.length == 0)
 			{
-				if (values.mat == null || values.strength == 0)
+				if (values.mat == null)
 				{
 					return false;
 				}
 			}
 			
-			if(args.length > 0)
+			else if(args.length > 0)
 			{
 				String[] split = args[0].split(":");
 				values.mat = getMat(split[0]);
@@ -73,24 +73,18 @@ public class BlockLobber extends JavaPlugin{
 						return true;
 					}
 				}
-			}
-			if(args.length > 1)
-			{
-				try
+				if (args.length > 1)
 				{
-					values.strength = Byte.parseByte(args[1]);
+					try
+					{
+						values.strength = Byte.parseByte(args[1]);
+					}
+					catch(Exception e)
+					{
+						player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid value inserted!");
+						return true;
+					}
 				}
-				catch(Exception e)
-				{
-					player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid value inserted!");
-					return true;
-				}
-			}
-			
-			if (values.mat == null)
-			{
-				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid Material selected!");
-				return true;
 			}
 			
 			if(values.loc == null)
@@ -128,7 +122,7 @@ public class BlockLobber extends JavaPlugin{
 			   	return false;	
 			}
 
-                        else if (args0.equals("pos") || args0.equals("position"))
+            else if (args0.equals("pos") || args0.equals("position"))
 			{
 				values.loc = getLocation(player, args);
 			}
@@ -174,7 +168,7 @@ public class BlockLobber extends JavaPlugin{
 			else
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			        return false;
+			    return false;
 			}
 			        
 		    presets.put(player.getName(), values);
@@ -188,7 +182,7 @@ public class BlockLobber extends JavaPlugin{
 			Presets values = new Presets(presets.get(player.getName()));
 			if (args.length == 0)
 			{
-			   return false;	
+			    return false;	
 			}
 			
 			if(args0.equals("pos") || args0.equals("position"))
@@ -228,7 +222,7 @@ public class BlockLobber extends JavaPlugin{
 			else
 			{
 				player.sendMessage(ChatColor.DARK_RED + "Error:" + ChatColor.RED + " Invalid preset selected!");
-			       	return false;
+			    return false;
 			}
 			
 		    presets.put(player.getName(), values);
