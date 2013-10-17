@@ -240,7 +240,7 @@ public class BlockLobber extends JavaPlugin{
 		// ---- PROJECTILE SECTION ----
 		if(command.getName().equals("lobp") && player != null)
 		{
-		  	ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
+			ProjPresets values = new ProjPresets(projpresets.get(player.getName()));
 			if(args.length == 0)
 			{
 				if (values.projtype == null)
@@ -363,7 +363,7 @@ public class BlockLobber extends JavaPlugin{
 			   	return false;	
 			}
 			
-                         else if (args0.equals("pos") || args0.equals("position"))
+            else if (args0.equals("pos") || args0.equals("position"))
 			{
 				values.projloc = getLocation(player, args);
 			}
